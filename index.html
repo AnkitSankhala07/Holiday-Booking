@@ -57,7 +57,8 @@
 </div>
 
 <!-- Hero Section with Full-Bleed 30sundays Style Background Video -->
-<section class="hero hero-30sundays">
+<!-- Top Section: Video Hero Showcase (Up Side) -->
+<section class="hero-video-section">
   <!-- Video Background Layer -->
   <div class="hero-video-wrapper">
     <video id="heroVideo" class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
@@ -68,8 +69,7 @@
   </div>
 
   <div class="wrap hero-wrap-centered">
-    
-    <div class="hero-content hero-content-centered">
+    <div class="hero-content-centered">
       
       <!-- Cursive Script Display Headline -->
       <h1 class="script-headline">
@@ -88,53 +88,7 @@
         </button>
       </div>
 
-      <!-- Tabbed Search Widget -->
-      <div class="search-widget search-widget-glass">
-        <div class="search-widget-tabs" id="heroSearchTabs">
-          <button class="active" data-type="holidays">✈ Holidays</button>
-          <button data-type="flights">✈ Flights</button>
-          <button data-type="hotels">🏨 Hotels</button>
-          <button data-type="experiences">🚵 Experiences</button>
-          <button data-type="custom">🔄 Custom Trip</button>
-        </div>
-
-        <form id="heroSearchForm" class="search-widget-body">
-          <div class="sw-field">
-            <label for="destInput">Where to?</label>
-            <div class="sw-field-input">
-              <span>📍</span>
-              <input type="text" id="destInput" placeholder="Search Destination (e.g. Kerala, Bali)">
-            </div>
-          </div>
-
-          <div class="sw-field">
-            <label for="tdateInput">Check In - Check Out</label>
-            <div class="sw-field-input">
-              <span>📅</span>
-              <input type="date" id="tdateInput">
-            </div>
-          </div>
-
-          <div class="sw-field">
-            <label for="travInput">Travellers</label>
-            <div class="sw-field-input">
-              <span>👤</span>
-              <select id="travInput">
-                <option value="2">2 Travellers, 1 Room</option>
-                <option value="1">1 Traveller (Solo)</option>
-                <option value="family">Family (2+1 Child)</option>
-                <option value="group">Group (4+ Travellers)</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-explore" id="heroSearchBtn">
-            Explore Now →
-          </button>
-        </form>
-      </div>
-
-      <!-- Video Audio & Playback Controls Floating Bar -->
+      <!-- Video Controls Floating Bar -->
       <div class="hero-video-controls">
         <div class="hero-live-badge">
           <span class="live-pulse"></span>
@@ -151,7 +105,60 @@
       </div>
 
     </div>
+  </div>
+</section>
 
+<!-- Bottom Section: Tabbed Search Widget (Below Video - Matching User Screenshot) -->
+<section class="hero-search-section">
+  <div class="wrap">
+    <div class="search-widget search-widget-below">
+      
+      <!-- Tabs Row matching screenshot -->
+      <div class="search-widget-tabs" id="heroSearchTabs">
+        <button class="active" data-type="holidays">✈ Holidays</button>
+        <button data-type="flights">✈ Flights</button>
+        <button data-type="hotels">🏨 Hotels</button>
+        <button data-type="experiences">🚵 Experiences</button>
+        <button data-type="custom">🔄 Custom Trip</button>
+      </div>
+
+      <!-- Input Fields Row matching screenshot -->
+      <form id="heroSearchForm" class="search-widget-body">
+        <div class="sw-field">
+          <label for="destInput">WHERE TO?</label>
+          <div class="sw-field-input">
+            <span>📍</span>
+            <input type="text" id="destInput" placeholder="Search Destination (e.g. Kerala, Bali)">
+          </div>
+        </div>
+
+        <div class="sw-field">
+          <label for="tdateInput">CHECK IN - CHECK OUT</label>
+          <div class="sw-field-input">
+            <span>📅</span>
+            <input type="date" id="tdateInput">
+          </div>
+        </div>
+
+        <div class="sw-field">
+          <label for="travInput">TRAVELLERS</label>
+          <div class="sw-field-input">
+            <span>👤</span>
+            <select id="travInput">
+              <option value="2">2 Travellers, 1 Room</option>
+              <option value="1">1 Traveller (Solo)</option>
+              <option value="family">Family (2+1 Child)</option>
+              <option value="group">Group (4+ Travellers)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-explore" id="heroSearchBtn">
+          Explore Now →
+        </button>
+      </form>
+
+    </div>
   </div>
 </section>
 
