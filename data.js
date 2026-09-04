@@ -648,6 +648,23 @@ const Store = {
         btn.classList.remove('logged-in');
       }
     });
+  },
+  clearAllData: function() {
+    localStorage.removeItem('rmh_wishlist');
+    localStorage.removeItem('rmh_bookings');
+    localStorage.removeItem('rmh_user');
+    localStorage.removeItem('rmh_db_users');
+    localStorage.removeItem('rmh_db_session');
+    localStorage.removeItem('rmh_db_enquiries');
+    localStorage.removeItem('rmh_supabase_url');
+    localStorage.removeItem('rmh_supabase_key');
+    if (typeof SupabaseService !== 'undefined' && SupabaseService.clearAllLocalData) {
+      SupabaseService.clearAllLocalData();
+    }
+    this.updateHeaderBadges();
+    this.updateUserUI();
+    console.log('🧹 All local database and user data cleared successfully.');
   }
 };
+
 

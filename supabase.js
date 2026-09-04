@@ -314,5 +314,17 @@ const SupabaseService = {
     }
     LocalDb.saveEnquiry(enquiryObj);
     return { success: true };
+  },
+
+  clearAllLocalData: function() {
+    LocalDb.setCurrentSession(null);
+    localStorage.removeItem('rmh_db_users');
+    localStorage.removeItem('rmh_db_session');
+    localStorage.removeItem('rmh_db_enquiries');
+    localStorage.removeItem('rmh_bookings');
+    localStorage.removeItem('rmh_wishlist');
+    localStorage.removeItem('rmh_user');
+    console.log('🧹 Local database data reset.');
   }
 };
+
