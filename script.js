@@ -126,10 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (enquireModal) enquireModal.classList.add('open');
   }
 
-  const btnRequestQuote = document.getElementById('btnRequestQuote');
+  const heroRequestQuoteBtn = document.getElementById('heroRequestQuoteBtn');
+
   if (headerEnquireBtn) headerEnquireBtn.addEventListener('click', openEnquireModal);
   if (mobileEnquireBtn) mobileEnquireBtn.addEventListener('click', openEnquireModal);
-  if (btnRequestQuote) btnRequestQuote.addEventListener('click', openEnquireModal);
+  if (heroRequestQuoteBtn) heroRequestQuoteBtn.addEventListener('click', openEnquireModal);
 
   if (enquireForm) {
     enquireForm.addEventListener('submit', (e) => {

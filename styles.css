@@ -1,16 +1,17 @@
 /* =========================================================
-   RULEMYHOLIDAY — Luxury Design System (Matching Reference UI)
-   Palette: Royal Navy (#0B1B36) / Deep Midnight (#071328) / Warm Gold (#E59E1A) / Emerald WhatsApp (#25D366)
-   Type: Playfair Display (Serif Headings) + Poppins / Inter (Body & Controls)
+   RULEMYHOLIDAY — 30sundays Inspired Premium Design System
+   Palette: Hot Pink CTA (#FF0554) / Midnight (#071328) / Warm Gold (#E59E1A) / Emerald (#25D366)
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
   --navy:        #0B1B36;   /* Royal Navy Primary */
   --navy-dark:   #071328;   /* Deep Midnight Banner */
   --navy-soft:   #152A4A;
   --gold:        #E59E1A;   /* Primary Warm Gold */
+  --pink-cta:    #FF0554;   /* 30sundays Signature Hot Pink */
+  --pink-hover:  #E00448;
   --gold-hover:  #D99414;
   --gold-pale:   #FFF8EB;
   --gold-light:  #FDF3E1;
@@ -22,9 +23,10 @@
   --white:       #FFFFFF;
   --paper:       #F9FAFC;
 
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-head:  'Poppins', sans-serif;
-  --font-body:  'Inter', sans-serif;
+  --font-script: 'Caveat', cursive, sans-serif;
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-head:   'Poppins', sans-serif;
+  --font-body:   'Inter', sans-serif;
 
   --radius-s:  8px;
   --radius-m:  16px;
@@ -54,67 +56,100 @@ p{ margin:0; }
 
 .wrap{ max-width:1280px; margin:0 auto; padding:0 24px; width:100%; }
 
-/* ---------- Floating Capsule Navbar (30sundays Style) ---------- */
-.navbar-pill {
-  position: absolute;
-  top: 24px;
+/* ---------- 30sundays Floating Pill Navbar ---------- */
+.navbar-floating {
+  position: fixed;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
-  width: calc(100% - 48px);
-  max-width: 980px;
-  background: #FFFDF8;
+  width: calc(100% - 40px);
+  max-width: 1040px;
+  background: rgba(255, 248, 235, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 999px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-  padding: 8px 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  z-index: 100;
   border: 1px solid rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
 }
 
-.pill-inner {
+.navbar-floating .nav-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 52px;
-  width: 100%;
+  padding: 8px 18px 8px 24px;
+  min-height: 60px;
 }
 
-.btn-contact-nav {
-  background: #FF0055;
+.btn-contact-pill {
+  background: var(--pink-cta);
   color: #FFFFFF !important;
-  font-weight: 700;
-  font-size: 14.5px;
   padding: 10px 24px;
   border-radius: 999px;
+  font-weight: 700;
+  font-size: 14.5px;
   border: none;
+  box-shadow: 0 4px 18px rgba(255, 5, 84, 0.4);
   transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(255, 0, 85, 0.35);
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn-contact-nav:hover {
-  background: #E6004C;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgba(255, 0, 85, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav-links a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 8'%3E%3Cpath d='M0 4 Q 10 0, 20 4 T 40 4' fill='none' stroke='%23FF0055' stroke-width='2.5'/%3E%3C/svg%3E") repeat-x center;
-  background-size: 20px 6px;
+.btn-contact-pill:hover {
+  background: var(--pink-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(255, 5, 84, 0.55);
 }
 
-/* ---------- Hero Section with Video Background ---------- */
-.hero {
+/* Brand Logo */
+.logo-container{ display:flex; flex-direction:column; gap:2px; }
+.logo-brand{
+  font-family:var(--font-head); font-weight:800; font-size:22px; color:var(--navy);
+  display:inline-flex; align-items:center; gap:6px; text-decoration:none; letter-spacing:-0.02em;
+}
+.logo-brand .crown-icon{ width:24px; height:24px; fill:var(--gold); }
+
+/* Navigation Links */
+.nav-links{ display:flex; gap:28px; align-items:center; }
+.nav-links a{
+  font-size:15px; font-weight:600; color:var(--navy); position:relative; padding:6px 0;
+  display:inline-flex; align-items:center; gap:4px; transition:color .2s;
+}
+.nav-links a:hover{ color:var(--pink-cta); }
+.nav-links a.active{ color:var(--navy); font-weight:700; }
+.nav-links a.active::after{
+  content:""; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--pink-cta); border-radius:2px;
+}
+
+.hamburger{
+  display:none; background:none; border:none; font-size:24px; color:var(--navy); padding:6px; margin-right:-6px;
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav-backdrop{
+  position:fixed; inset:0; background:rgba(7,19,40,0.65); z-index:99;
+  opacity:0; pointer-events:none; transition:opacity .3s ease; backdrop-filter:blur(4px);
+}
+.mobile-nav-backdrop.open{ opacity:1; pointer-events:auto; }
+
+.mobile-nav-drawer{
+  position:fixed; top:0; right:-320px; width:300px; height:100%; background:var(--white);
+  z-index:100; box-shadow:-10px 0 30px rgba(0,0,0,0.2); transition:transform .3s cubic-bezier(0.16,1,0.3,1);
+  display:flex; flex-direction:column; padding:24px; overflow-y:auto;
+}
+.mobile-nav-drawer.open{ transform:translateX(-320px); }
+.drawer-close{ align-self:flex-end; background:none; border:none; font-size:24px; color:var(--text-mute); padding:4px 8px; margin-bottom:20px; }
+.mobile-nav-links{ display:flex; flex-direction:column; gap:14px; font-size:16px; font-weight:600; }
+.mobile-nav-links a{ color:var(--navy); padding:10px 14px; border-radius:var(--radius-s); display:flex; justify-content:space-between; align-items:center; }
+.mobile-nav-links a:hover, .mobile-nav-links a.active{ background:var(--gold-pale); color:var(--gold-hover); }
+
+/* ---------- 30sundays Full Bleed Centered Hero Section ---------- */
+.hero-30sundays {
   position: relative;
   min-height: 100vh;
-  padding: 140px 0 70px;
+  padding: 130px 0 60px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -126,9 +161,86 @@ p{ margin:0; }
   position: relative;
   z-index: 5;
   display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-content-centered {
+  max-width: 820px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Cursive Script Headline (Matching 30sundays screenshot) */
+.script-headline {
+  font-family: var(--font-script);
+  font-size: clamp(44px, 6.8vw, 84px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.08;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.45);
+  letter-spacing: -0.01em;
+}
+
+.hero-sub-centered {
+  font-size: 18px;
+  color: #F1F5F9;
+  max-width: 46ch;
+  margin: 0 auto 24px;
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+/* Central Primary Action Button (Request a Quote) */
+.hero-cta-box {
+  margin-bottom: 28px;
+}
+
+.btn-request-quote {
+  background: var(--pink-cta);
+  color: #FFFFFF;
+  font-size: 16.5px;
+  font-weight: 700;
+  padding: 15px 42px;
+  border-radius: 999px;
+  border: none;
+  box-shadow: 0 8px 30px rgba(255, 5, 84, 0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+.btn-request-quote:hover {
+  background: var(--pink-hover);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 40px rgba(255, 5, 84, 0.65);
+}
+
+/* Floating WhatsApp Circular Button at Bottom Right (Matching 30sundays) */
+.floating-wa-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  background: var(--green-wa);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+  z-index: 99;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-wa-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.6);
 }
 
 /* Video Wrapper & Overlay */
@@ -146,7 +258,7 @@ p{ margin:0; }
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.02);
+  transform: scale(1.03); /* Subtle overscale for smooth edges */
   transition: opacity 0.5s ease;
 }
 
@@ -155,73 +267,97 @@ p{ margin:0; }
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(7, 19, 40, 0.45) 0%,
-    rgba(7, 19, 40, 0.25) 50%,
+    rgba(7, 19, 40, 0.72) 0%,
+    rgba(7, 19, 40, 0.45) 45%,
+    rgba(7, 19, 40, 0.88) 100%
+  ),
+  radial-gradient(
+    circle at 30% 50%,
+    rgba(11, 27, 54, 0.2) 0%,
     rgba(7, 19, 40, 0.75) 100%
   );
   z-index: 2;
 }
 
-.hero-center-content {
-  max-width: 820px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 5;
 }
 
-/* Script Cursive Display Headline (30sundays Style) */
-.hero-script-title {
-  font-family: 'Caveat', cursive, var(--font-serif);
-  font-size: clamp(44px, 6.8vw, 84px);
+/* Display Headline over Video */
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.5vw, 66px);
   font-weight: 700;
   color: #FFFFFF;
-  line-height: 1.12;
-  margin-bottom: 24px;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Vibrant Request a Quote CTA */
-.hero-cta-group {
-  margin-bottom: 32px;
+.hero h1 .gold-line {
+  color: var(--gold);
+  display: block;
+  position: relative;
+  font-style: italic;
+  text-shadow: 0 4px 25px rgba(229, 158, 26, 0.4);
 }
 
-.btn-request-quote {
-  background: #FF0055;
-  color: #FFFFFF;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 16.5px;
-  padding: 15px 44px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(255, 0, 85, 0.5);
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+/* Gold Brush Underline SVG Effect */
+.gold-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 340px;
+  max-width: 100%;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12'%3E%3Cpath d='M2 8 C 70 2, 230 2, 298 8' stroke='%23E59E1A' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center;
+  background-size: contain;
+}
+
+.hero-sub {
+  font-size: 17.5px;
+  color: #E2E8F0;
+  margin-top: 20px;
+  line-height: 1.6;
+  max-width: 48ch;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Customers First Medallion Badge */
+.hero-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  background: rgba(11, 27, 54, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-top: 22px;
+  border: 1px solid rgba(229, 158, 26, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.05em;
 }
-.btn-request-quote:hover {
-  background: #E6004C;
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 14px 36px rgba(255, 0, 85, 0.65);
-}
+.hero-badge .medal-icon { width: 20px; height: 20px; fill: var(--gold); }
 
-/* ---------- Glassmorphism Search Widget ---------- */
-.search-widget-glass {
-  background: rgba(255, 255, 255, 0.92);
+/* ---------- Tabbed Search Widget (Glassmorphism over Video) ---------- */
+.search-widget {
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--radius-m);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-  width: 100%;
-  max-width: 900px;
+  margin-top: 36px;
+  padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
   border: 1px solid rgba(255, 255, 255, 0.4);
   max-width: 900px;
 }
@@ -609,6 +745,15 @@ p{ margin:0; }
   .pkg-grid{ grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:768px){
+  .navbar-floating {
+    top: 10px;
+    width: calc(100% - 24px);
+    border-radius: 999px;
+  }
+  .navbar-floating .nav-wrap {
+    padding: 6px 14px;
+    min-height: 52px;
+  }
   .nav-links, .nav-right{ display:none; }
   .hamburger{ display:block; }
   .trust-bar-grid{ grid-template-columns:repeat(2, 1fr); }
@@ -616,136 +761,68 @@ p{ margin:0; }
   body{ padding-bottom:64px; }
 
   /* Mobile Hero Video Section Tuning */
-  .hero {
-    min-height: 82vh;
-    padding: 36px 0 54px;
-    align-items: flex-end;
+  .hero-30sundays {
+    min-height: 90vh;
+    padding: 95px 0 45px;
   }
-  .hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(7, 19, 40, 0.55) 0%,
-      rgba(7, 19, 40, 0.25) 45%,
-      rgba(7, 19, 40, 0.85) 100%
-    );
+  .script-headline {
+    font-size: 38px;
+    line-height: 1.12;
   }
-  .hero-video {
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-@media (max-width:580px){
-  .hero {
-    min-height: 85vh;
-    padding: 28px 0 44px;
-  }
-  .hero h1 {
-    font-size: 28px;
-    line-height: 1.15;
-  }
-  .hero-sub {
-    font-size: 14px;
-    margin-top: 10px;
-/* ---------- Fixed WhatsApp Float Button (30sundays Style) ---------- */
-.fixed-whatsapp-btn {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
-  z-index: 999;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  text-decoration: none;
-}
-.fixed-whatsapp-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.65);
-}
-.fixed-whatsapp-btn svg {
-  width: 32px;
-  height: 32px;
-  fill: #FFFFFF;
-}
-
-/* ---------- Responsive Breakpoints ---------- */
-@media (max-width:1180px){
-  .floating-widgets{ display:none; }
-}
-@media (max-width:980px){
-  .trust-bar-grid{ grid-template-columns:repeat(3, 1fr); gap:20px; }
-  .search-widget-body{ grid-template-columns:1fr 1fr; gap:12px; }
-  .sw-field{ border-right:none; }
-  .btn-explore{ grid-column:span 2; width:100%; }
-  .pkg-grid{ grid-template-columns:repeat(2,1fr); }
-}
-@media (max-width:768px){
-  .nav-links, .nav-right{ display:none; }
-  .hamburger{ display:block; color: var(--navy); }
-  .trust-bar-grid{ grid-template-columns:repeat(2, 1fr); }
-  .mobile-bottom-bar{ display:grid; }
-  body{ padding-bottom:64px; }
-
-  .navbar-pill {
-    top: 14px;
-    width: calc(100% - 24px);
-    padding: 6px 16px;
-  }
-  .pill-inner {
-    min-height: 44px;
-  }
-  .hero {
-    min-height: 100vh;
-    padding: 100px 0 40px;
-  }
-  .hero-script-title {
-    font-size: 42px;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width:580px){
-  .navbar-pill {
-    top: 10px;
-    width: calc(100% - 20px);
-    padding: 4px 14px;
-  }
-  .hero-script-title {
-    font-size: 34px;
-    line-height: 1.15;
+  .hero-sub-centered {
+    font-size: 14.5px;
     margin-bottom: 18px;
   }
   .btn-request-quote {
-    font-size: 15px;
-    padding: 13px 34px;
+    font-size: 14.5px;
+    padding: 12px 32px;
+  }
+}
+
+@media (max-width:580px){
+  .navbar-floating {
+    top: 8px;
+    width: calc(100% - 16px);
+  }
+  .logo-brand { font-size: 18px; }
+  .logo-brand .crown-icon { width: 20px; height: 20px; }
+  .hero-30sundays {
+    min-height: 92vh;
+    padding: 85px 0 35px;
+  }
+  .script-headline {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .hero-sub-centered {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+  .btn-request-quote {
+    font-size: 13.5px;
+    padding: 11px 28px;
   }
 
   /* Translucent Glass Search Widget on Mobile */
-  .search-widget-glass {
+  .search-widget {
     margin-top: 16px;
-    background: rgba(11, 27, 54, 0.55);
+    background: rgba(11, 27, 54, 0.45);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   }
   .search-widget-tabs {
     background: rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
   .search-widget-tabs button {
-    padding: 9px 12px;
+    padding: 10px 14px;
     font-size: 12px;
     color: #E2E8F0;
   }
   .search-widget-tabs button.active {
-    background: #FF0055;
+    background: var(--pink-cta);
     color: #FFFFFF;
   }
   .search-widget-body {
@@ -764,26 +841,22 @@ p{ margin:0; }
     color: var(--navy);
   }
   .sw-field-input input, .sw-field-input select {
-    font-size: 13.5px;
+    font-size: 13px;
   }
   .btn-explore {
     grid-column: 1;
-    height: 46px;
-    font-size: 14px;
-    padding: 12px 20px;
-    margin-top: 4px;
-    background: #FF0055;
-  }
-  .btn-explore:hover {
-    background: #E6004C;
+    height: 44px;
+    font-size: 13.5px;
+    padding: 10px 18px;
+    background: var(--pink-cta);
   }
 
   /* Floating Controls on Mobile */
   .hero-video-controls {
     margin-top: 14px;
     width: 100%;
-    justify-content: space-between;
-    gap: 6px;
+    justify-content: center;
+    gap: 8px;
   }
   .hero-live-badge {
     font-size: 10.5px;
@@ -793,15 +866,11 @@ p{ margin:0; }
     font-size: 11px;
     padding: 5px 12px;
   }
-  .fixed-whatsapp-btn {
-    bottom: 74px;
-    right: 18px;
+  .floating-wa-btn {
     width: 50px;
     height: 50px;
-  }
-  .fixed-whatsapp-btn svg {
-    width: 26px;
-    height: 26px;
+    bottom: 74px; /* Above mobile bottom bar */
+    right: 16px;
   }
   .trust-bar-grid { grid-template-columns: 1fr; }
   .pkg-grid { grid-template-columns: 1fr; }
