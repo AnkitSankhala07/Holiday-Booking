@@ -3,41 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holiday Packages — RuleMyHoliday</title>
+<title>Holiday Packages — RuleMyHoliday.com</title>
 <meta name="description" content="Search, filter and compare domestic and international holiday packages at guaranteed best prices.">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Announcement Bar -->
-<div class="announce">
-  <div class="wrap">
-    <span>✦ Exclusive Holiday Deals — Book your dream vacation today</span>
-    <div class="contact-bits">
-      <span>24/7 Travel Assistance</span>
-      <a href="tel:+911244567890">+91 124 456 7890</a>
-    </div>
-  </div>
-</div>
-
 <!-- Header -->
 <header class="navbar">
   <div class="wrap">
-    <a href="index.html" class="logo">Rule<span class="mark">My</span>Holiday</a>
+    
+    <!-- Crown Brand Logo -->
+    <div class="logo-container">
+      <a href="index.html" class="logo-brand">
+        <svg class="crown-icon" viewBox="0 0 24 24">
+          <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+        </svg>
+        Rule<span style="color:var(--navy);">My</span>Holiday<span class="mark-dot">.com</span>
+      </a>
+      <span class="logo-tagline">CUSTOMERS FIRST. ZERO COMPROMISE.</span>
+    </div>
+
+    <!-- Nav Links -->
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="packages.html" class="active">Holiday Packages</a>
+      <a href="packages.html" class="active">Holidays <span class="arrow-down">▼</span></a>
       <a href="packages.html?type=domestic">Domestic</a>
       <a href="packages.html?type=international">International</a>
-      <a href="index.html#themes">Themes</a>
-      <a href="index.html#deals">Deals</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#contact">Contact Us</a>
     </nav>
+
+    <!-- Nav Right -->
     <div class="nav-right">
-      <a href="#" class="bookings-link">My Bookings</a>
-      <a href="#" class="wishlist-link">Wishlist</a>
-      <a href="#" class="btn-login">Login</a>
+      <a href="tel:+919046003748" class="nav-phone">
+        <span class="icon-phone">📞</span> +91 90460 03748
+      </a>
+      <button class="btn-enquire" id="headerEnquireBtn">Enquire Now</button>
+      <a href="#" class="wishlist-link" style="color:var(--navy);font-size:13.5px;">Wishlist</a>
     </div>
+
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
   </div>
 </header>
@@ -48,37 +54,24 @@
   <button class="drawer-close" id="mobileNavClose" aria-label="Close menu">✕</button>
   <div class="mobile-nav-links">
     <a href="index.html">Home</a>
-    <a href="packages.html" class="active">Holiday Packages</a>
-    <a href="packages.html?type=domestic">Domestic Trips</a>
-    <a href="packages.html?type=international">International Trips</a>
+    <a href="packages.html" class="active">Holidays</a>
+    <a href="packages.html?type=domestic">Domestic Packages</a>
+    <a href="packages.html?type=international">International Packages</a>
     <a href="packages.html?theme=honeymoon">Honeymoon Specials</a>
   </div>
-  <div class="mobile-nav-footer">
-    <a href="#" class="bookings-link btn-ghost" style="width:100%;text-align:center;">My Bookings</a>
-    <a href="#" class="wishlist-link btn-ghost" style="width:100%;text-align:center;">Wishlist</a>
-    <a href="#" class="btn-login btn-solid" style="width:100%;text-align:center;">Login</a>
-  </div>
-</div>
-
-<!-- Mobile Filter Sticky Bar (visible only on mobile) -->
-<div class="mobile-filter-bar">
-  <button id="mobileFilterBtn">⚙ Filter &amp; Sort Packages</button>
 </div>
 
 <!-- Main Listing Layout -->
-<div class="wrap">
+<div class="wrap" style="padding-top:30px;padding-bottom:80px;">
   <div class="listing-shell">
     
-    <!-- Sidebar Filters (Desktop) -->
+    <!-- Sidebar Filters -->
     <aside id="filterSidebar">
-      
-      <!-- Search Keyword -->
       <div class="filter-box">
         <h4>Search Keyword</h4>
         <input type="text" id="pkgKeywordInput" placeholder="Search destination, title..." style="width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius-s);font-size:13.5px;">
       </div>
 
-      <!-- Destination Filter -->
       <div class="filter-box">
         <h4>Destination</h4>
         <label class="filter-opt"><input type="checkbox" data-filter="dest" value="Goa"> Goa</label>
@@ -91,14 +84,11 @@
         <label class="filter-opt"><input type="checkbox" data-filter="dest" value="Europe"> Europe</label>
       </div>
 
-      <!-- Price Range Filter -->
       <div class="filter-box">
-        <h4>Max Budget: <span id="priceRangeLabel" style="color:var(--sunset);font-weight:700;">₹1,50,000</span></h4>
-        <input type="range" id="priceRangeInput" min="8000" max="150000" step="5000" value="150000" style="width:100%;accent-color:var(--sunset);">
-        <div class="range-labels"><span>₹8,000</span><span>₹1,50,000+</span></div>
+        <h4>Max Budget: <span id="priceRangeLabel" style="color:var(--gold);font-weight:700;">₹1,50,000</span></h4>
+        <input type="range" id="priceRangeInput" min="8000" max="150000" step="5000" value="150000" style="width:100%;accent-color:var(--gold);">
       </div>
 
-      <!-- Duration Filter -->
       <div class="filter-box">
         <h4>Duration</h4>
         <label class="filter-opt"><input type="checkbox" data-filter="duration" value="1-3"> 1–3 Days</label>
@@ -106,79 +96,68 @@
         <label class="filter-opt"><input type="checkbox" data-filter="duration" value="7+"> 7+ Days</label>
       </div>
 
-      <!-- Travel Theme Filter -->
-      <div class="filter-box">
-        <h4>Travel Theme</h4>
-        <label class="filter-opt"><input type="checkbox" data-filter="theme" value="honeymoon"> Honeymoon</label>
-        <label class="filter-opt"><input type="checkbox" data-filter="theme" value="family"> Family</label>
-        <label class="filter-opt"><input type="checkbox" data-filter="theme" value="adventure"> Adventure</label>
-        <label class="filter-opt"><input type="checkbox" data-filter="theme" value="luxury"> Luxury</label>
-        <label class="filter-opt"><input type="checkbox" data-filter="theme" value="group"> Group Tour</label>
-      </div>
-
-      <!-- Star Category Filter -->
-      <div class="filter-box">
-        <h4>Hotel Category</h4>
-        <label class="filter-opt"><input type="checkbox" data-filter="stars" value="3"> 3 Star</label>
-        <label class="filter-opt"><input type="checkbox" data-filter="stars" value="4"> 4 Star</label>
-        <label class="filter-opt"><input type="checkbox" data-filter="stars" value="5"> 5 Star</label>
-      </div>
-
-      <!-- Reset Filters Button -->
       <button class="btn-ghost" id="resetFiltersBtn" style="width:100%;text-align:center;">Reset All Filters</button>
-
     </aside>
 
-    <!-- Packages Container -->
+    <!-- Packages Grid Container -->
     <div>
-      <div class="listing-top">
-        <span class="result-count" id="resultCount">Loading packages...</span>
-        <select class="sort-select" id="sortSelect">
+      <div class="listing-top" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <span class="result-count" id="resultCount" style="font-weight:700;color:var(--navy);">Loading packages...</span>
+        <select class="sort-select" id="sortSelect" style="border:1px solid var(--line);border-radius:8px;padding:8px 14px;">
           <option value="popular">Sort by: Popularity</option>
           <option value="low">Price: Low to High</option>
           <option value="high">Price: High to Low</option>
-          <option value="duration">Duration: Low to High</option>
           <option value="rating">Rating: High to Low</option>
         </select>
       </div>
 
-      <!-- Active Filter Chips -->
-      <div class="active-filter-chips" id="activeFilterChips"></div>
+      <div class="active-filter-chips" id="activeFilterChips" style="display:flex;gap:8px;margin-bottom:16px;"></div>
 
-      <!-- Package Cards Grid (Clean Responsive Grid without hardcoded style) -->
-      <div class="pkg-grid" id="mainPkgGrid">
-        <!-- Rendered dynamically by script.js -->
-      </div>
+      <div class="pkg-grid" id="mainPkgGrid"></div>
     </div>
 
   </div>
 </div>
 
-<!-- Mobile Filter Drawer Modal -->
-<div class="modal-backdrop" id="mobileFilterDrawerModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="document.getElementById('mobileFilterDrawerModal').classList.remove('open')">✕</button>
-    <h3>Filter Packages</h3>
-    <div id="mobileFilterDrawerContent" style="margin-top:16px;">
-      <!-- Cloned or rendered controls for mobile -->
-    </div>
-    <button class="btn-solid" onclick="document.getElementById('mobileFilterDrawerModal').classList.remove('open')" style="width:100%;margin-top:16px;">Apply Filters</button>
-  </div>
+<!-- Mobile Bottom Action Bar -->
+<div class="mobile-bottom-bar">
+  <a href="https://wa.me/919046003748" target="_blank" class="btn-mb-wa">
+    <span style="font-size:16px;">💬</span>
+    WhatsApp
+  </a>
+  <a href="tel:+919046003748" class="btn-mb-call">
+    <span style="font-size:16px;">📞</span>
+    Call Us
+  </a>
+  <button class="btn-mb-enquire" id="mobileEnquireBtn">
+    <span style="font-size:16px;">📅</span>
+    Enquire Now
+  </button>
 </div>
 
 <!-- Footer -->
 <footer>
   <div class="wrap">
     <div class="foot-bottom" style="border-top:none;margin-top:0;">
-      <span>© 2026 RuleMyHoliday Private Limited. All rights reserved.</span>
+      <span>© 2026 RuleMyHoliday.com. All rights reserved. CUSTOMERS FIRST. ZERO COMPROMISE.</span>
       <span><a href="index.html">← Back to home</a></span>
     </div>
   </div>
 </footer>
 
 <!-- Modals -->
+<div class="modal-backdrop" id="enquireModal">
+  <div class="modal-box" style="max-width:480px;">
+    <button class="modal-close" onclick="document.getElementById('enquireModal').classList.remove('open')">✕</button>
+    <h3>Enquire Now — Custom Quote</h3>
+    <form id="enquireForm">
+      <div class="modal-form-group"><label>Your Name</label><input type="text" id="enqName" required placeholder="e.g. Ankit Sharma"></div>
+      <div class="modal-form-group"><label>Phone Number</label><input type="tel" id="enqPhone" required placeholder="+91 90460 03748"></div>
+      <button type="submit" class="btn-solid" style="width:100%;margin-top:10px;background:var(--gold);border-color:var(--gold);">Get Callback</button>
+    </form>
+  </div>
+</div>
 
-<!-- Wishlist Modal -->
 <div class="modal-backdrop" id="wishlistModal">
   <div class="modal-box">
     <button class="modal-close" onclick="document.getElementById('wishlistModal').classList.remove('open')">✕</button>
@@ -187,58 +166,7 @@
   </div>
 </div>
 
-<!-- Bookings Modal -->
-<div class="modal-backdrop" id="bookingsModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="document.getElementById('bookingsModal').classList.remove('open')">✕</button>
-    <h3>My Saved Bookings</h3>
-    <div id="bookingsModalBody" style="display:flex;flex-direction:column;gap:14px;margin-top:16px;"></div>
-  </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal-backdrop" id="loginModal">
-  <div class="modal-box" style="max-width:420px;">
-    <button class="modal-close" onclick="document.getElementById('loginModal').classList.remove('open')">✕</button>
-    <h3>Login to RuleMyHoliday</h3>
-    <form id="loginForm" style="margin-top:18px;">
-      <div class="modal-form-group">
-        <label>Email Address</label>
-        <input type="email" id="loginEmail" required placeholder="you@example.com">
-      </div>
-      <div class="modal-form-group">
-        <label>Password</label>
-        <input type="password" id="loginPassword" required placeholder="••••••••">
-      </div>
-      <button type="submit" class="btn-solid" style="width:100%;margin-top:10px;">Login</button>
-    </form>
-  </div>
-</div>
-
-<!-- Toast Container -->
 <div class="toast-container" id="toastContainer"></div>
-
-<!-- AI Chatbot (Rumi) -->
-<button class="chat-fab" id="chatFab" aria-label="Open Rumi, AI travel assistant">💬</button>
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-head">
-    <div class="avatar">R</div>
-    <div style="flex:1;"><strong>Rumi</strong><span>Your AI Travel Assistant</span></div>
-    <button id="chatClose" style="background:none;border:none;color:#fff;font-size:18px;">✕</button>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div class="msg bot">Hi! I'm Rumi 👋 Need help narrowing these packages down by budget or travel style?</div>
-  </div>
-  <div class="chat-suggest" id="chatSuggest">
-    <button>Find budget packages</button>
-    <button>Honeymoon ideas</button>
-    <button>Help me choose</button>
-  </div>
-  <div class="chat-input">
-    <input type="text" id="chatInput" placeholder="Ask Rumi anything...">
-    <button id="chatSend">➤</button>
-  </div>
-</div>
 
 <!-- Scripts -->
 <script src="data.js"></script>

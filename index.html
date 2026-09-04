@@ -3,44 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RuleMyHoliday — Custom Trips, Holiday Packages & Travel Deals</title>
-<meta name="description" content="Discover domestic and international holiday packages, build a custom itinerary, and book your next trip with RuleMyHoliday.">
+<title>RuleMyHoliday — Dream to Destination. We Make it Rule.</title>
+<meta name="description" content="Curated holidays, seamless travel experiences and memories that last a lifetime with RuleMyHoliday.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Announcement bar -->
-<div class="announce">
-  <div class="wrap">
-    <span>✦ Exclusive Holiday Deals — Book your dream vacation today with 0% EMI options</span>
-    <div class="contact-bits">
-      <span>24/7 Travel Assistance</span>
-      <a href="tel:+911244567890">+91 124 456 7890</a>
-      <a href="mailto:hello@rulemyholiday.com">hello@rulemyholiday.com</a>
-    </div>
-  </div>
-</div>
-
 <!-- Header / Navigation -->
 <header class="navbar">
   <div class="wrap">
-    <a href="index.html" class="logo">Rule<span class="mark">My</span>Holiday</a>
+    
+    <!-- Crown Brand Logo -->
+    <div class="logo-container">
+      <a href="index.html" class="logo-brand">
+        <svg class="crown-icon" viewBox="0 0 24 24">
+          <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+        </svg>
+        Rule<span style="color:var(--navy);">My</span>Holiday<span class="mark-dot">.com</span>
+      </a>
+      <span class="logo-tagline">CUSTOMERS FIRST. ZERO COMPROMISE.</span>
+    </div>
+
+    <!-- Nav Links -->
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="packages.html">Holiday Packages</a>
-      <a href="packages.html?type=domestic">Domestic</a>
-      <a href="packages.html?type=international">International</a>
-      <a href="#themes">Themes</a>
-      <a href="#deals">Deals</a>
-      <a href="#blog">Blogs</a>
+      <a href="packages.html">Holidays <span class="arrow-down">▼</span></a>
+      <a href="packages.html?type=international">Experiences <span class="arrow-down">▼</span></a>
+      <a href="packages.html">Destinations <span class="arrow-down">▼</span></a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact Us</a>
     </nav>
+
+    <!-- Nav Right Contact & CTA -->
     <div class="nav-right">
-      <a href="#" class="bookings-link">My Bookings</a>
-      <a href="#" class="wishlist-link">Wishlist</a>
-      <a href="#" class="btn-login">Login</a>
+      <a href="tel:+919046003748" class="nav-phone">
+        <span class="icon-phone">📞</span> +91 90460 03748
+      </a>
+      <button class="btn-enquire" id="headerEnquireBtn">Enquire Now</button>
+      <a href="#" class="wishlist-link" style="color:var(--navy);font-size:13.5px;">Wishlist</a>
     </div>
+
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
   </div>
 </header>
@@ -51,269 +54,227 @@
   <button class="drawer-close" id="mobileNavClose" aria-label="Close menu">✕</button>
   <div class="mobile-nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="packages.html">Holiday Packages</a>
-    <a href="packages.html?type=domestic">Domestic Trips</a>
-    <a href="packages.html?type=international">International Trips</a>
+    <a href="packages.html">Holidays</a>
+    <a href="packages.html?type=domestic">Domestic Packages</a>
+    <a href="packages.html?type=international">International Packages</a>
     <a href="packages.html?theme=honeymoon">Honeymoon Specials</a>
-    <a href="#deals">Special Deals</a>
-    <a href="#blog">Travel Blogs</a>
-  </div>
-  <div class="mobile-nav-footer">
-    <a href="#" class="bookings-link btn-ghost" style="width:100%;text-align:center;">My Bookings</a>
-    <a href="#" class="wishlist-link btn-ghost" style="width:100%;text-align:center;">Wishlist</a>
-    <a href="#" class="btn-login btn-solid" style="width:100%;text-align:center;">Login</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
   </div>
 </div>
 
 <!-- Hero Section -->
 <section class="hero">
+  <div class="wrap" style="position:relative;">
+    
+    <div class="hero-content">
+      <h1>
+        Dream to Destination.
+        <span class="gold-line">We Make it Rule.</span>
+      </h1>
+      <p class="hero-sub">
+        Curated holidays, seamless travel experiences and memories that last a lifetime.
+      </p>
+
+      <!-- Medallion Tag -->
+      <div class="hero-badge">
+        <svg class="medal-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+        CUSTOMERS FIRST. ZERO COMPROMISE.
+      </div>
+
+      <!-- Tabbed Search Widget -->
+      <div class="search-widget">
+        <div class="search-widget-tabs" id="heroSearchTabs">
+          <button class="active" data-type="holidays">✈ Holidays</button>
+          <button data-type="flights">✈ Flights</button>
+          <button data-type="hotels">🏨 Hotels</button>
+          <button data-type="experiences">🚵 Experiences</button>
+          <button data-type="custom">🔄 Custom Trip</button>
+        </div>
+
+        <form id="heroSearchForm" class="search-widget-body">
+          <div class="sw-field">
+            <label for="destInput">Where to?</label>
+            <div class="sw-field-input">
+              <span>📍</span>
+              <input type="text" id="destInput" placeholder="Search Destination (e.g. Kerala, Bali)">
+            </div>
+          </div>
+
+          <div class="sw-field">
+            <label for="tdateInput">Check In - Check Out</label>
+            <div class="sw-field-input">
+              <span>📅</span>
+              <input type="date" id="tdateInput">
+            </div>
+          </div>
+
+          <div class="sw-field">
+            <label for="travInput">Travellers</label>
+            <div class="sw-field-input">
+              <span>👤</span>
+              <select id="travInput">
+                <option value="2">2 Travellers, 1 Room</option>
+                <option value="1">1 Traveller (Solo)</option>
+                <option value="family">Family (2+1 Child)</option>
+                <option value="group">Group (4+ Travellers)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-explore" id="heroSearchBtn">
+            Explore Now →
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Floating Action Cards (Right Side Desktop) -->
+    <div class="floating-widgets">
+      
+      <!-- AI Trip Planner Card -->
+      <div class="ai-planner-card">
+        <div class="ai-robot-avatar">
+          🤖
+          <span class="online-dot"></span>
+        </div>
+        <h4>AI Trip Planner</h4>
+        <p>Build your perfect itinerary in seconds!</p>
+        <button class="btn-plan-trip" id="btnPlanTrip">Plan My Trip</button>
+      </div>
+
+      <!-- Floating WhatsApp Pill -->
+      <a href="https://wa.me/919046003748" target="_blank" class="floating-pill whatsapp">
+        <span style="font-size:20px;">💬</span>
+        <div>
+          WhatsApp
+          <span class="pill-sub">Chat with us</span>
+        </div>
+      </a>
+
+      <!-- Floating Call Us Pill -->
+      <a href="tel:+919046003748" class="floating-pill callus">
+        <span style="font-size:18px;">📞</span>
+        <div>
+          Call Us
+          <span class="pill-sub">+91 90460 03748</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Dark Navy Trust Bar ("Why Book With Us") -->
+<section class="trust-bar-section">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow-route"><span class="dots"></span> Plan → Customize → Travel</div>
-        <h1>Discover your next unforgettable trip</h1>
-        <p class="hero-sub">Explore hand-crafted holiday packages designed around your dates, your budget, and the way you love to travel.</p>
-        <div class="hero-stats">
-          <div><strong>1,200+</strong><span>Packages curated</span></div>
-          <div><strong>68</strong><span>Countries covered</span></div>
-          <div><strong>45,000+</strong><span>Happy travelers</span></div>
+    <div class="trust-bar-grid">
+      
+      <div class="trust-item">
+        <div class="trust-icon-box">🏅</div>
+        <div>
+          <h5>Customer First</h5>
+          <p>Your happiness is our priority.</p>
         </div>
       </div>
-      <div class="hero-photo">
-        <div class="photo-stack">
-          <div class="p1"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=700&q=80" alt="Tropical beach with turquoise water and longtail boat"></div>
-          <div class="p2"><img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=500&q=80" alt="Houseboat on Kerala backwaters at sunset"></div>
-        </div>
-        <div class="pin-badge"><span class="dot"></span> Trip planned: Kerala, 5D/4N</div>
-      </div>
-    </div>
 
-    <!-- Search card -->
-    <div class="search-card">
-      <div class="search-tabs" id="heroSearchTabs">
-        <button class="active" data-type="all">All Holidays</button>
-        <button data-type="domestic">Domestic</button>
-        <button data-type="international">International</button>
-        <button data-type="honeymoon">Honeymoon</button>
+      <div class="trust-item">
+        <div class="trust-icon-box">🛡</div>
+        <div>
+          <h5>Zero Compromise</h5>
+          <p>We ensure the highest standards always.</p>
+        </div>
       </div>
-      <form id="heroSearchForm" class="search-fields">
-        <div class="field">
-          <label for="destInput">Destination</label>
-          <input id="destInput" type="text" placeholder="e.g. Kerala, Goa, Bali, Dubai">
-        </div>
-        <div class="field">
-          <label for="depInput">Departure City</label>
-          <input id="depInput" type="text" placeholder="e.g. Mumbai, Delhi, Ahmedabad">
-        </div>
-        <div class="field">
-          <label for="tdateInput">Travel Date</label>
-          <input id="tdateInput" type="date">
-        </div>
-        <div class="field">
-          <label for="durInput">Duration</label>
-          <select id="durInput">
-            <option value="">Any Duration</option>
-            <option value="1-3">1–3 Days</option>
-            <option value="4-6">4–6 Days</option>
-            <option value="7+">7+ Days</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="travInput">Travelers</label>
-          <select id="travInput">
-            <option value="2">2 Adults</option>
-            <option value="1">Solo Traveler</option>
-            <option value="family">Family (2+1)</option>
-            <option value="group">Group (4+)</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-search" id="heroSearchBtn">🔍 Search</button>
-      </form>
-    </div>
 
-    <div class="quick-dest">
-      <span style="color:#9FB9C1;font-size:13px;font-weight:600;">Popular Destinations:</span>
-      <a href="packages.html?dest=Goa">Goa</a>
-      <a href="packages.html?dest=Kerala">Kerala</a>
-      <a href="packages.html?dest=Kashmir">Kashmir</a>
-      <a href="packages.html?dest=Manali">Manali</a>
-      <a href="packages.html?dest=Dubai">Dubai</a>
-      <a href="packages.html?dest=Bali">Bali</a>
-      <a href="packages.html?dest=Maldives">Maldives</a>
-      <a href="packages.html?dest=Europe">Europe</a>
+      <div class="trust-item">
+        <div class="trust-icon-box">🌐</div>
+        <div>
+          <h5>Curated Experiences</h5>
+          <p>Handpicked destinations and experiences for you.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">🏷</div>
+        <div>
+          <h5>Best Value</h5>
+          <p>Best prices with unmatched value.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">🎧</div>
+        <div>
+          <h5>24/7 Support</h5>
+          <p>We're here for you, always.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Trending Destinations Carousel -->
-<section class="section route-strip">
+<!-- Social Proof / Ratings Section -->
+<section class="social-proof-section">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>Trending destinations</h2>
-        <p>The top choices travelers are booking this season, at a glance.</p>
-      </div>
-      <a href="packages.html" class="see-all">View all destinations →</a>
+    <div class="social-proof-title">
+      Trusted by <span class="gold-highlight">Thousands</span> of Happy Travellers
     </div>
-    <div class="dest-scroll">
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Goa'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=400&q=80" alt="Goa beach with palm trees"></div>
-        <div class="dname">Goa</div><div class="dmeta">Beach &amp; Nightlife</div><div class="dprice">From ₹9,999</div>
+
+    <div class="ratings-flex">
+      <!-- Google -->
+      <div class="rating-badge">
+        <span style="font-family:var(--font-head);font-size:18px;color:#4285F4;font-weight:800;">G<span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
+        <span class="rating-stars">★★★★★</span>
+        <span>4.8/5</span>
       </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Kerala'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" alt="Kerala backwaters"></div>
-        <div class="dname">Kerala</div><div class="dmeta">Backwaters &amp; Tea Hills</div><div class="dprice">From ₹24,999</div>
+
+      <!-- Trustpilot -->
+      <div class="rating-badge">
+        <span style="color:#00B67A;font-weight:800;font-size:16px;">★ Trustpilot</span>
+        <span style="background:#00B67A;color:#fff;padding:2px 6px;border-radius:4px;font-size:11px;">🟌🟌🟌🟌🟌</span>
+        <span>4.7/5</span>
       </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Kashmir'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&q=80" alt="Kashmir valley with snow mountains"></div>
-        <div class="dname">Kashmir</div><div class="dmeta">Dal Lake &amp; Snow Valleys</div><div class="dprice">From ₹22,999</div>
+
+      <!-- TripAdvisor -->
+      <div class="rating-badge">
+        <span style="color:#34E0A1;font-weight:800;font-size:16px;">🦉 tripadvisor</span>
+        <span style="color:#34E0A1;">●●●●●</span>
+        <span>4.6/5</span>
       </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Manali'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1626016301964-3ce62a8823ba?w=400&q=80" alt="Manali mountains and valley"></div>
-        <div class="dname">Manali</div><div class="dmeta">Solang Adventure</div><div class="dprice">From ₹11,499</div>
-      </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Dubai'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&q=80" alt="Dubai skyline at dusk"></div>
-        <div class="dname">Dubai</div><div class="dmeta">Desert Safari &amp; Burj</div><div class="dprice">From ₹34,999</div>
-      </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Bali'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80" alt="Bali rice terraces"></div>
-        <div class="dname">Bali</div><div class="dmeta">Villas &amp; Temples</div><div class="dprice">From ₹39,999</div>
-      </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Maldives'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400&q=80" alt="Maldives overwater villas"></div>
-        <div class="dname">Maldives</div><div class="dmeta">Overwater Bungalows</div><div class="dprice">From ₹64,999</div>
-      </div>
-      <div class="dest-card" onclick="window.location.href='packages.html?dest=Europe'">
-        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&q=80" alt="European old town street"></div>
-        <div class="dname">Europe</div><div class="dmeta">Paris &amp; Swiss Alps</div><div class="dprice">From ₹1,09,999</div>
+
+      <!-- Avatars Stack -->
+      <div class="travellers-stack">
+        <div class="avatar-group">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Traveler 1">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Traveler 2">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Traveler 3">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Traveler 4">
+        </div>
+        <div class="travellers-count">
+          10,000+
+          <span>Happy Travellers</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Travel by theme -->
-<section class="section alt" id="themes">
-  <div class="wrap">
-    <div class="section-head">
-      <div><h2>Find your holiday style</h2><p>Select your favorite travel experience to filter packages instantly.</p></div>
-    </div>
-    <div class="theme-grid">
-      <a class="theme-card" href="packages.html?theme=honeymoon"><div class="emoji">💑</div><div class="tname">Honeymoon</div></a>
-      <a class="theme-card" href="packages.html?theme=family"><div class="emoji">👨‍👩‍👧</div><div class="tname">Family Trips</div></a>
-      <a class="theme-card" href="packages.html?theme=adventure"><div class="emoji">🏔</div><div class="tname">Adventure</div></a>
-      <a class="theme-card" href="packages.html?theme=luxury"><div class="emoji">💎</div><div class="tname">Luxury</div></a>
-      <a class="theme-card" href="packages.html?theme=group"><div class="emoji">👥</div><div class="tname">Group Tours</div></a>
-    </div>
-  </div>
-</section>
-
-<!-- Top Domestic packages -->
+<!-- Featured Packages -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div><h2>Top domestic packages</h2><p>Hand-picked trips across India, ready to customize and book.</p></div>
-      <a href="packages.html?type=domestic" class="see-all">View all domestic →</a>
+      <div>
+        <h2>Handcrafted Holiday Packages</h2>
+        <p>Explore top domestic and international itineraries ready for your travel dates.</p>
+      </div>
+      <a href="packages.html" class="btn-ghost">View All Packages →</a>
     </div>
+
     <div class="pkg-grid" id="domesticPkgGrid">
       <!-- Dynamic rendering via script.js -->
-    </div>
-  </div>
-</section>
-
-<!-- Top International packages -->
-<section class="section alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div><h2>Top international packages</h2><p>Bali, Dubai, Maldives &amp; Europe — visa-assisted and ready to explore.</p></div>
-      <a href="packages.html?type=international" class="see-all">View all international →</a>
-    </div>
-    <div class="pkg-grid" id="intlPkgGrid">
-      <!-- Dynamic rendering via script.js -->
-    </div>
-  </div>
-</section>
-
-<!-- Special Deals -->
-<section class="section" id="deals">
-  <div class="wrap">
-    <div class="section-head"><div><h2>Limited-time deals</h2><p>Grab exclusive discounts before countdown timers run out.</p></div></div>
-    <div class="deals-strip" id="dealsStrip">
-      <!-- Dynamic deals rendered by script.js -->
-    </div>
-  </div>
-</section>
-
-<!-- Why book with us -->
-<section class="section alt">
-  <div class="wrap">
-    <div class="section-head"><div><h2>Why book with RuleMyHoliday</h2></div></div>
-    <div class="trust-grid">
-      <div class="trust-card"><div class="tick">✓</div><p>Best Price Guarantee</p></div>
-      <div class="trust-card"><div class="tick">✓</div><p>100% Customized Trips</p></div>
-      <div class="trust-card"><div class="tick">✓</div><p>Verified Local Experts</p></div>
-      <div class="trust-card"><div class="tick">✓</div><p>Secure Payments</p></div>
-      <div class="trust-card"><div class="tick">✓</div><p>24/7 Travel Assistance</p></div>
-      <div class="trust-card"><div class="tick">✓</div><p>Flexible Cancellation</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head"><div><h2>What our travelers say</h2></div></div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-top">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Portrait of Priya S.">
-          <div><div class="testi-name">Priya S.</div><div class="testi-place">Bali, Honeymoon</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p class="quote">RuleMyHoliday planned our honeymoon perfectly. Everything was seamless, from airport pickup to floating breakfast in our villa!</p>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=100&q=80" alt="Portrait of Arjun M.">
-          <div><div class="testi-name">Arjun M.</div><div class="testi-place">Kerala, Family Trip</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p class="quote">The itinerary was so well-paced for our kids, and the houseboat night in Alleppey was the highlight of the whole holiday.</p>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=100&q=80" alt="Portrait of Neha K.">
-          <div><div class="testi-name">Neha K.</div><div class="testi-place">Dubai, Group Trip</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p class="quote">Great value for money, dune bashing safari was spectacular, and the AI assistant Rumi helped us pick the exact package in minutes.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Blog -->
-<section class="section alt" id="blog">
-  <div class="wrap">
-    <div class="section-head"><div><h2>Travel blog &amp; guides</h2><p>Tips, itineraries and inspiration for your next journey.</p></div></div>
-    <div class="blog-grid">
-      <a class="blog-card" href="packages.html?dest=Bali"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80" alt="Bali temple"><div class="bcat">Guides</div><h4>Top 10 romantic spots in Bali</h4></a>
-      <a class="blog-card" href="packages.html?dest=Kashmir"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&q=80" alt="Kashmir snow mountains"><div class="bcat">Planning</div><h4>Best season to visit Kashmir</h4></a>
-      <a class="blog-card" href="packages.html?dest=Goa"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=400&q=80" alt="Goa beach sunset"><div class="bcat">Budget</div><h4>Budget beach getaway in Goa</h4></a>
-      <a class="blog-card" href="packages.html?dest=Kerala"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" alt="Kerala backwaters"><div class="bcat">Honeymoon</div><h4>How to plan the ultimate Kerala escape</h4></a>
-    </div>
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section class="section">
-  <div class="wrap">
-    <div class="newsletter">
-      <div><h3>Get travel inspiration &amp; secret deals</h3><p>One curated email per week. No spam, unsubscribe anytime.</p></div>
-      <form class="nl-form" onsubmit="event.preventDefault(); window.showToast('Subscribed successfully! 🎉');">
-        <input type="email" required placeholder="Enter your email address">
-        <button type="submit">Subscribe</button>
-      </form>
     </div>
   </div>
 </section>
@@ -321,120 +282,55 @@
 <!-- Footer -->
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo">Rule<span class="mark">My</span>Holiday</div>
-        <p class="tag">RULEMYHOLIDAY PRIVATE LIMITED — designing custom holidays and trusted holiday packages across India and abroad.</p>
-        <div class="foot-social">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="LinkedIn">IN</a>
-          <a href="#" aria-label="YouTube">YT</a>
-        </div>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Holiday Packages</h5>
-        <ul>
-          <li><a href="packages.html?type=domestic">Domestic Trips</a></li>
-          <li><a href="packages.html?type=international">International Trips</a></li>
-          <li><a href="packages.html?theme=honeymoon">Honeymoon Packages</a></li>
-          <li><a href="packages.html?theme=adventure">Adventure Tours</a></li>
-          <li><a href="packages.html?theme=luxury">Luxury Escapes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Support</h5>
-        <ul>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Cancellation Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 RuleMyHoliday Private Limited. All rights reserved.</span>
-      <span>Made for travelers, by travelers.</span>
+    <div class="foot-bottom" style="border-top:none;margin-top:0;">
+      <span>© 2026 RuleMyHoliday.com. All rights reserved. CUSTOMERS FIRST. ZERO COMPROMISE.</span>
+      <span><a href="tel:+919046003748">+91 90460 03748</a></span>
     </div>
   </div>
 </footer>
 
-<!-- Modals -->
-
-<!-- Wishlist Modal -->
-<div class="modal-backdrop" id="wishlistModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="document.getElementById('wishlistModal').classList.remove('open')">✕</button>
-    <h3>Saved Wishlist</h3>
-    <div id="wishlistModalBody" style="display:flex;flex-direction:column;gap:14px;margin-top:16px;">
-      <!-- Populated dynamically -->
-    </div>
-  </div>
+<!-- Mobile Fixed Bottom Action Bar -->
+<div class="mobile-bottom-bar">
+  <a href="https://wa.me/919046003748" target="_blank" class="btn-mb-wa">
+    <span style="font-size:16px;">💬</span>
+    WhatsApp
+  </a>
+  <a href="tel:+919046003748" class="btn-mb-call">
+    <span style="font-size:16px;">📞</span>
+    Call Us
+  </a>
+  <button class="btn-mb-enquire" id="mobileEnquireBtn">
+    <span style="font-size:16px;">📅</span>
+    Enquire Now
+  </button>
 </div>
 
-<!-- Bookings Modal -->
-<div class="modal-backdrop" id="bookingsModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="document.getElementById('bookingsModal').classList.remove('open')">✕</button>
-    <h3>My Saved Bookings</h3>
-    <div id="bookingsModalBody" style="display:flex;flex-direction:column;gap:14px;margin-top:16px;">
-      <!-- Populated dynamically -->
-    </div>
-  </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal-backdrop" id="loginModal">
-  <div class="modal-box" style="max-width:420px;">
-    <button class="modal-close" onclick="document.getElementById('loginModal').classList.remove('open')">✕</button>
-    <h3>Login to RuleMyHoliday</h3>
-    <form id="loginForm" style="margin-top:18px;">
+<!-- Enquire Modal Dialog -->
+<div class="modal-backdrop" id="enquireModal">
+  <div class="modal-box" style="max-width:480px;">
+    <button class="modal-close" onclick="document.getElementById('enquireModal').classList.remove('open')">✕</button>
+    <h3>Enquire Now — Custom Quote</h3>
+    <p style="font-size:13px;color:var(--text-mute);margin-bottom:16px;">Our travel expert will send you a personalized itinerary within 15 minutes.</p>
+    <form id="enquireForm">
       <div class="modal-form-group">
-        <label>Email Address</label>
-        <input type="email" id="loginEmail" required placeholder="you@example.com">
+        <label>Your Name</label>
+        <input type="text" id="enqName" required placeholder="e.g. Ankit Sharma">
       </div>
       <div class="modal-form-group">
-        <label>Password</label>
-        <input type="password" id="loginPassword" required placeholder="••••••••">
+        <label>Phone Number</label>
+        <input type="tel" id="enqPhone" required placeholder="+91 90460 03748">
       </div>
-      <button type="submit" class="btn-solid" style="width:100%;margin-top:10px;">Login</button>
-      <p style="text-align:center;font-size:12.5px;margin-top:12px;color:var(--text-mute);">Demo account? Just enter any name &amp; password!</p>
+      <div class="modal-form-group">
+        <label>Destination &amp; Travel Dates</label>
+        <input type="text" id="enqDest" placeholder="e.g. Kerala, 5 Days in October">
+      </div>
+      <button type="submit" class="btn-solid" style="width:100%;margin-top:10px;background:var(--gold);border-color:var(--gold);">Get Free Callback &amp; Quote 🎉</button>
     </form>
   </div>
 </div>
 
-<!-- Toast notification container -->
+<!-- Toast Container -->
 <div class="toast-container" id="toastContainer"></div>
-
-<!-- AI Chatbot (Rumi) -->
-<button class="chat-fab" id="chatFab" aria-label="Open Rumi, AI travel assistant">💬</button>
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-head">
-    <div class="avatar">R</div>
-    <div style="flex:1;"><strong>Rumi</strong><span>Your AI Travel Assistant</span></div>
-    <button id="chatClose" style="background:none;border:none;color:#fff;font-size:18px;" aria-label="Close chat">✕</button>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div class="msg bot">Hi! I'm Rumi 👋 Tell me your travel plans, budget, or preferred destination and I'll find matching packages instantly!</div>
-  </div>
-  <div class="chat-suggest" id="chatSuggest">
-    <button>Honeymoon under ₹40k</button>
-    <button>Plan a 5-day Kerala trip</button>
-    <button>Best Dubai packages</button>
-  </div>
-  <div class="chat-input">
-    <input type="text" id="chatInput" placeholder="Ask Rumi anything about your trip...">
-    <button id="chatSend" aria-label="Send message">➤</button>
-  </div>
-</div>
 
 <!-- Scripts -->
 <script src="data.js"></script>
