@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazing Kerala Escape — RuleMyHoliday</title>
+<title>Package Details — RuleMyHoliday</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Navbar -->
 <header class="navbar">
   <div class="wrap">
     <a href="index.html" class="logo">Rule<span class="mark">My</span>Holiday</a>
@@ -19,40 +20,61 @@
       <a href="packages.html?type=international">International</a>
       <a href="index.html#deals">Deals</a>
     </nav>
-    <div class="nav-right"><a href="#">My Bookings</a><a href="#">Wishlist</a><a href="#" class="btn-login">Login</a></div>
-    <button class="hamburger" aria-label="Menu">☰</button>
+    <div class="nav-right">
+      <a href="#" class="bookings-link">My Bookings</a>
+      <a href="#" class="wishlist-link">Wishlist</a>
+      <a href="#" class="btn-login">Login</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
   </div>
 </header>
 
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <button class="drawer-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+  <div class="mobile-nav-links">
+    <a href="index.html">Home</a>
+    <a href="packages.html">Holiday Packages</a>
+    <a href="packages.html?type=domestic">Domestic Trips</a>
+    <a href="packages.html?type=international">International Trips</a>
+  </div>
+  <div class="mobile-nav-footer">
+    <a href="#" class="bookings-link btn-ghost" style="width:100%;text-align:center;">My Bookings</a>
+    <a href="#" class="wishlist-link btn-ghost" style="width:100%;text-align:center;">Wishlist</a>
+    <a href="#" class="btn-login btn-solid" style="width:100%;text-align:center;">Login</a>
+  </div>
+</div>
+
+<!-- Package Header Banner -->
 <div class="pd-header">
   <div class="wrap">
     <div>
-      <h1>Amazing Kerala Escape</h1>
-      <div class="pd-meta">
-        <span>★ 4.7 (312 reviews)</span>
-        <span>Cochin → Munnar → Thekkady → Alleppey</span>
-        <span>4 Nights / 5 Days</span>
+      <h1 id="pdTitle">Loading Package...</h1>
+      <div class="pd-meta" id="pdMeta">
+        <!-- Dynamic metadata -->
       </div>
     </div>
-    <div style="display:flex;gap:10px;">
-      <button class="btn-ghost" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff;">♡ Save</button>
-      <button class="btn-ghost" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff;">⤴ Share</button>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <button class="btn-ghost" id="pdWishBtn" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff;">♡ Save Wishlist</button>
+      <button class="btn-ghost" id="pdShareBtn" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff;">⤴ Share</button>
     </div>
   </div>
 </div>
 
+<!-- Photo Gallery & Details Layout -->
 <div class="wrap">
-  <div class="gallery">
-    <div class="g1"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=900&q=80" alt="Kerala backwater houseboat, main view"></div>
-    <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=500&q=80" alt="Munnar tea gardens">
-    <img src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=500&q=80" alt="Alleppey canal">
-    <img src="https://images.unsplash.com/photo-1580889240911-b57b975a4a1d?w=500&q=80" alt="Thekkady wildlife sanctuary">
-    <img src="https://images.unsplash.com/photo-1580889240911-b57b975a4a1d?w=500&q=80" alt="Kerala resort pool view">
+  
+  <!-- Dynamic Image Gallery -->
+  <div class="gallery" id="pdGallery">
+    <!-- Rendered dynamically -->
   </div>
 
+  <!-- Shell Grid: Main Content + Sticky Booking Card -->
   <div class="pd-shell">
     <div>
-      <div class="tabs">
+      <!-- Tabs Navigation -->
+      <div class="tabs" id="pdTabs">
         <button class="active" data-tab="tab-overview">Overview</button>
         <button data-tab="tab-itinerary">Itinerary</button>
         <button data-tab="tab-hotels">Hotels</button>
@@ -62,137 +84,239 @@
         <button data-tab="tab-faqs">FAQs</button>
       </div>
 
+      <!-- Overview Tab -->
       <div class="tab-panel active" id="tab-overview">
-        <p style="line-height:1.8;color:var(--text-mute);margin-bottom:22px;">A gentle, well-paced route through Kerala's highlands and backwaters — misty tea estates in Munnar, a wildlife safari in Thekkady, and a night aboard a private houseboat in Alleppey. Comfortable for families, couples, and first-time visitors alike.</p>
-        <div class="incl-grid" style="grid-template-columns:repeat(2,1fr);">
-          <li><strong>Duration:</strong> 4 Nights / 5 Days</li>
-          <li><strong>Cities covered:</strong> Cochin, Munnar, Thekkady, Alleppey</li>
-          <li><strong>Package type:</strong> Private Tour</li>
-          <li><strong>Starting location:</strong> Cochin</li>
-          <li><strong>Ending location:</strong> Cochin</li>
-          <li><strong>Best time to visit:</strong> September – March</li>
-        </div>
+        <p id="pdOverviewText" style="line-height:1.8;color:var(--text-mute);margin-bottom:24px;font-size:15px;"></p>
+        <div class="incl-grid" id="pdQuickFacts"></div>
       </div>
 
+      <!-- Itinerary Accordion Tab -->
       <div class="tab-panel" id="tab-itinerary">
-        <details class="itin-day" open>
-          <summary><span class="num">1</span> Arrival in Cochin</summary>
-          <div class="idbody"><ul><li>Airport pickup and transfer to hotel</li><li>Evening at leisure to explore Fort Kochi</li><li>Overnight stay in Cochin</li></ul></div>
-        </details>
-        <details class="itin-day">
-          <summary><span class="num">2</span> Cochin to Munnar</summary>
-          <div class="idbody"><ul><li>Scenic drive through spice plantations</li><li>Check-in at Munnar hill resort</li><li>Evening walk through tea gardens</li></ul></div>
-        </details>
-        <details class="itin-day">
-          <summary><span class="num">3</span> Munnar to Thekkady</summary>
-          <div class="idbody"><ul><li>Visit tea museum en route</li><li>Afternoon boat safari at Periyar Wildlife Sanctuary</li><li>Optional spice plantation tour</li></ul></div>
-        </details>
-        <details class="itin-day">
-          <summary><span class="num">4</span> Thekkady to Alleppey — Houseboat</summary>
-          <div class="idbody"><ul><li>Drive to Alleppey backwaters</li><li>Board private houseboat for an overnight cruise</li><li>All meals served on board</li></ul></div>
-        </details>
-        <details class="itin-day">
-          <summary><span class="num">5</span> Alleppey to Cochin — Departure</summary>
-          <div class="idbody"><ul><li>Disembark after breakfast</li><li>Transfer to Cochin airport</li><li>Tour ends</li></ul></div>
-        </details>
+        <div id="pdItineraryList"></div>
       </div>
 
+      <!-- Hotels Tab -->
       <div class="tab-panel" id="tab-hotels">
-        <div class="pkg-grid" style="grid-template-columns:1fr 1fr;">
-          <article class="pkg-card">
-            <div class="pkg-photo"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=500&q=80" alt="Munnar hill resort"></div>
-            <div class="pkg-body"><h3 style="font-size:15.5px;">Misty Hills Resort, Munnar</h3><div class="pkg-duration">4★ · Deluxe Room · Breakfast &amp; Dinner</div></div>
-          </article>
-          <article class="pkg-card">
-            <div class="pkg-photo"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&q=80" alt="Alleppey houseboat interior"></div>
-            <div class="pkg-body"><h3 style="font-size:15.5px;">Premium Houseboat, Alleppey</h3><div class="pkg-duration">Private · 1 Bedroom · All Meals Included</div></div>
-          </article>
-        </div>
+        <div class="pkg-grid" id="pdHotelsList" style="grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));"></div>
       </div>
 
+      <!-- Inclusions Tab -->
       <div class="tab-panel" id="tab-inclusions">
-        <ul class="incl-grid yes">
-          <li>4 nights hotel &amp; houseboat stay</li>
-          <li>Daily breakfast, 2 dinners</li>
-          <li>All airport &amp; intercity transfers</li>
-          <li>Private AC vehicle throughout</li>
-          <li>Sightseeing as per itinerary</li>
-          <li>English-speaking tour guide</li>
-        </ul>
+        <ul class="incl-grid yes" id="pdInclusionsList"></ul>
       </div>
 
+      <!-- Exclusions Tab -->
       <div class="tab-panel" id="tab-exclusions">
-        <ul class="incl-grid no">
-          <li>Flights to/from Cochin</li>
-          <li>Personal expenses &amp; tips</li>
-          <li>Travel insurance</li>
-          <li>Optional activities not listed</li>
-        </ul>
+        <ul class="incl-grid no" id="pdExclusionsList"></ul>
       </div>
 
+      <!-- Reviews Tab -->
       <div class="tab-panel" id="tab-reviews">
-        <div class="testi-card" style="box-shadow:none;border:1px solid var(--line);margin-bottom:14px;">
-          <div class="testi-top"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Reviewer portrait"><div><div class="testi-name">Priya S.</div><div class="testi-place">Traveled March 2026</div></div></div>
-          <div class="stars">★★★★★</div><p class="quote">The houseboat night was magical, and our driver was incredibly courteous throughout.</p>
-        </div>
-        <div class="testi-card" style="box-shadow:none;border:1px solid var(--line);">
-          <div class="testi-top"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=100&q=80" alt="Reviewer portrait"><div><div class="testi-name">Arjun M.</div><div class="testi-place">Traveled Jan 2026</div></div></div>
-          <div class="stars">★★★★★</div><p class="quote">Well-paced for our kids, hotels were clean and comfortable.</p>
-        </div>
+        <div id="pdReviewsList" style="display:flex;flex-direction:column;gap:14px;"></div>
       </div>
 
+      <!-- FAQs Tab -->
       <div class="tab-panel" id="tab-faqs">
-        <details class="itin-day"><summary><span class="num">?</span> Is this package customizable?</summary><div class="idbody">Yes — use "Customize Package" on the booking card to adjust hotels, add days, or change the route.</div></details>
-        <details class="itin-day"><summary><span class="num">?</span> Are flights included?</summary><div class="idbody">Flights are not included. Our travel expert can help book them separately at the best available fare.</div></details>
+        <div id="pdFaqsList"></div>
       </div>
     </div>
 
-    <aside class="booking-card">
+    <!-- Booking Card (Desktop Sticky Sidebar) -->
+    <aside class="booking-card" id="bookingCard">
       <div class="from">Starting from</div>
-      <div class="price">₹24,999</div>
+      <div class="price" id="calcBasePrice">₹0</div>
       <div class="pp2">per person, twin sharing · taxes extra</div>
 
-      <div class="bf-row"><label>Travel date</label><input type="date"></div>
+      <div class="bf-row">
+        <label for="calcDate">Travel Date</label>
+        <input type="date" id="calcDate">
+      </div>
+      
       <div class="bf-row">
         <label>Travelers</label>
-        <div class="stepper" style="display:flex;align-items:center;gap:10px;">
-          <button type="button" class="minus btn-ghost" style="padding:6px 12px;">−</button>
-          <span class="val">2</span>
-          <button type="button" class="plus btn-ghost" style="padding:6px 12px;">+</button>
+        <div class="stepper">
+          <button type="button" id="stepMinus">−</button>
+          <span class="val" id="stepVal">2</span>
+          <button type="button" id="stepPlus">+</button>
         </div>
       </div>
-      <div class="bf-row"><label>Room type</label><select><option>Double Sharing</option><option>Single</option><option>Triple</option></select></div>
-      <div class="bf-row"><label>Coupon code</label><input type="text" placeholder="Enter coupon"></div>
 
-      <div class="price-break">
-        <div><span>Package price × 2</span><span>₹49,998</span></div>
-        <div><span>Taxes &amp; fees</span><span>₹2,400</span></div>
-        <div><span>Discount</span><span style="color:var(--green);">− ₹6,000</span></div>
-        <div class="total"><span>Total</span><span>₹46,398</span></div>
+      <div class="bf-row">
+        <label for="calcRoom">Room Sharing</label>
+        <select id="calcRoom">
+          <option value="double">Double Sharing (Standard)</option>
+          <option value="single">Single Occupancy (+₹4,000)</option>
+          <option value="triple">Triple Sharing (−₹2,000)</option>
+        </select>
       </div>
 
-      <button class="btn-solid">Book Now</button>
-      <button class="btn-ghost">Customize Package</button>
-      <button class="btn-ghost">Talk to Expert</button>
+      <div class="bf-row">
+        <label for="calcCoupon">Coupon Code</label>
+        <div style="display:flex;gap:6px;">
+          <input type="text" id="calcCoupon" placeholder="e.g. RULE20, EARLYBIRD" style="text-transform:uppercase;">
+          <button type="button" class="btn-ghost" id="applyCouponBtn" style="padding:8px 12px;white-space:nowrap;">Apply</button>
+        </div>
+        <div class="coupon-msg" id="couponMsg"></div>
+      </div>
+
+      <div class="price-break">
+        <div><span>Package Price (<span id="calcCount">2</span> person)</span><span id="calcSubtotal">₹0</span></div>
+        <div><span>Taxes &amp; Service Fees (5%)</span><span id="calcTaxes">₹0</span></div>
+        <div id="discountRow" style="display:none;"><span>Coupon Discount</span><span style="color:var(--green);" id="calcDiscount">− ₹0</span></div>
+        <div class="total"><span>Grand Total</span><span id="calcTotal">₹0</span></div>
+      </div>
+
+      <button class="btn-solid" id="triggerBookModal">Book Now</button>
+      <button class="btn-ghost" id="triggerCustomModal">Customize Package</button>
+      <button class="btn-ghost" onclick="window.showToast('Connecting you with a travel expert... 📞')">Talk to Expert</button>
     </aside>
   </div>
 </div>
 
-<footer>
-  <div class="wrap"><div class="foot-bottom" style="border-top:none;margin-top:0;">
-    <span>© 2026 RuleMyHoliday Private Limited. All rights reserved.</span>
-    <span><a href="packages.html">← Back to all packages</a></span>
-  </div></div>
-</footer>
-
-<button class="chat-fab" id="chatFab" aria-label="Open Rumi, AI travel assistant">💬</button>
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-head"><div class="avatar">R</div><div style="flex:1;"><strong>Rumi</strong><span>Your AI Travel Assistant</span></div><button id="chatClose" style="background:none;border:none;color:#fff;font-size:18px;">✕</button></div>
-  <div class="chat-body" id="chatBody"><div class="msg bot">Hi! I'm Rumi 👋 Ask me what's included in this Kerala package, or how to customize it.</div></div>
-  <div class="chat-suggest" id="chatSuggest"><button>What's included?</button><button>Help me customize my trip</button><button>Compare with another package</button></div>
-  <div class="chat-input"><input type="text" id="chatInput" placeholder="Ask Rumi anything..."><button id="chatSend">➤</button></div>
+<!-- Mobile Sticky Bottom Booking Bar -->
+<div class="mobile-booking-bar">
+  <div>
+    <div class="m-price" id="mobilePrice">₹0</div>
+    <div class="m-pp">per person, twin sharing</div>
+  </div>
+  <button id="mobileBookBtn">Select Date &amp; Book</button>
 </div>
 
+<!-- Modals -->
+
+<!-- Complete Booking Modal -->
+<div class="modal-backdrop" id="bookModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('bookModal').classList.remove('open')">✕</button>
+    <h3>Complete Your Booking</h3>
+    <p style="font-size:13.5px;color:var(--text-mute);margin-bottom:16px;" id="bookModalSubtitle">Amazing Kerala Escape — 2 Travelers</p>
+    
+    <form id="bookingConfirmForm">
+      <div class="modal-form-group">
+        <label>Primary Traveler Full Name</label>
+        <input type="text" id="bookFullName" required placeholder="e.g. Rahul Sharma">
+      </div>
+      <div class="modal-form-group">
+        <label>Email Address</label>
+        <input type="email" id="bookEmail" required placeholder="rahul@example.com">
+      </div>
+      <div class="modal-form-group">
+        <label>Mobile Number</label>
+        <input type="tel" id="bookPhone" required placeholder="+91 98765 43210">
+      </div>
+      <div class="modal-form-group">
+        <label>Special Requests (Optional)</label>
+        <textarea id="bookNotes" rows="3" placeholder="Food preferences, honeymoon setup, airport pickup time..."></textarea>
+      </div>
+
+      <div style="background:var(--sage);padding:14px;border-radius:var(--radius-s);margin-bottom:16px;font-size:13.5px;">
+        <div style="display:flex;justify-content:space-between;font-weight:700;">
+          <span>Total Amount Payable:</span>
+          <span style="color:var(--sunset);" id="bookModalTotalPayable">₹0</span>
+        </div>
+        <span style="font-size:11.5px;color:var(--text-mute);">Instant confirmation. Pay 20% advance or pay full later.</span>
+      </div>
+
+      <button type="submit" class="btn-solid" style="width:100%;">Confirm &amp; Reserve Trip 🎉</button>
+    </form>
+  </div>
+</div>
+
+<!-- Customize Trip Modal -->
+<div class="modal-backdrop" id="customModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('customModal').classList.remove('open')">✕</button>
+    <h3>Customize Your Itinerary</h3>
+    <form id="customForm" style="margin-top:16px;">
+      <div class="modal-form-group">
+        <label>Upgrade Hotel Star Rating</label>
+        <select id="custHotel">
+          <option value="0">Standard 4★ Included</option>
+          <option value="3000">Luxury 5★ Upgrade (+₹3,000/night)</option>
+        </select>
+      </div>
+      <div class="modal-form-group">
+        <label>Add Extra Nights</label>
+        <select id="custNights">
+          <option value="0">Default Duration</option>
+          <option value="1">+1 Extra Night (+₹4,500)</option>
+          <option value="2">+2 Extra Nights (+₹8,500)</option>
+        </select>
+      </div>
+      <div class="modal-form-group">
+        <label>Add Special Experiences</label>
+        <label style="display:block;font-size:13px;margin-bottom:6px;"><input type="checkbox" id="custCandle"> Candlelight Dinner &amp; Bed Flower Setup (+₹2,500)</label>
+        <label style="display:block;font-size:13px;margin-bottom:6px;"><input type="checkbox" id="custCab"> Upgrade to Private SUV (Innova Crysta) (+₹4,000)</label>
+      </div>
+      <button type="submit" class="btn-solid" style="width:100%;margin-top:10px;">Save Customization &amp; Update Price</button>
+    </form>
+  </div>
+</div>
+
+<!-- Wishlist Modal -->
+<div class="modal-backdrop" id="wishlistModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('wishlistModal').classList.remove('open')">✕</button>
+    <h3>Saved Wishlist</h3>
+    <div id="wishlistModalBody" style="display:flex;flex-direction:column;gap:14px;margin-top:16px;"></div>
+  </div>
+</div>
+
+<!-- Bookings Modal -->
+<div class="modal-backdrop" id="bookingsModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('bookingsModal').classList.remove('open')">✕</button>
+    <h3>My Saved Bookings</h3>
+    <div id="bookingsModalBody" style="display:flex;flex-direction:column;gap:14px;margin-top:16px;"></div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal-backdrop" id="loginModal">
+  <div class="modal-box" style="max-width:420px;">
+    <button class="modal-close" onclick="document.getElementById('loginModal').classList.remove('open')">✕</button>
+    <h3>Login to RuleMyHoliday</h3>
+    <form id="loginForm" style="margin-top:18px;">
+      <div class="modal-form-group">
+        <label>Email Address</label>
+        <input type="email" id="loginEmail" required placeholder="you@example.com">
+      </div>
+      <div class="modal-form-group">
+        <label>Password</label>
+        <input type="password" id="loginPassword" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn-solid" style="width:100%;margin-top:10px;">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- AI Chatbot (Rumi) -->
+<button class="chat-fab" id="chatFab" aria-label="Open Rumi, AI travel assistant">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="avatar">R</div>
+    <div style="flex:1;"><strong>Rumi</strong><span>Your AI Travel Assistant</span></div>
+    <button id="chatClose" style="background:none;border:none;color:#fff;font-size:18px;">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">Hi! I'm Rumi 👋 Ask me what's included in this package, or how to customize it for your dates!</div>
+  </div>
+  <div class="chat-suggest" id="chatSuggest">
+    <button>What's included?</button>
+    <button>Customize itinerary</button>
+    <button>Is flights included?</button>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask Rumi anything...">
+    <button id="chatSend">➤</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
