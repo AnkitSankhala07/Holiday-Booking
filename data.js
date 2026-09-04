@@ -511,7 +511,7 @@ const COUPONS_DATA = {
 };
 
 // =========================================================
-// Storage & Helper Methods (Integrated with Supabase)
+// Storage & Helper Methods
 // =========================================================
 
 const Store = {
@@ -526,7 +526,7 @@ const Store = {
     localStorage.setItem('rmh_wishlist', JSON.stringify(list));
     this.updateHeaderBadges();
   },
-  toggleWishlist: async function(id) {
+  toggleWishlist: function(id) {
     let list = this.getWishlist();
     const index = list.indexOf(id);
     let added = false;
@@ -537,24 +537,10 @@ const Store = {
       added = true;
     }
     this.saveWishlist(list);
-
-    // Sync with Supabase DB if user logged in
-    if (typeof SupabaseService !== 'undefined') {
-      const res = await SupabaseService.toggleWishlistDb(id);
-      if (res !== null) added = res;
-    }
     return added;
   },
   isWishlisted: function(id) {
     return this.getWishlist().includes(id);
-  },
-  syncWishlistFromSupabase: async function() {
-    if (typeof SupabaseService !== 'undefined') {
-      const dbWishlist = await SupabaseService.fetchUserWishlist();
-      if (dbWishlist && dbWishlist.length > 0) {
-        this.saveWishlist(dbWishlist);
-      }
-    }
   },
   getBookings: function() {
     try {
@@ -575,41 +561,11 @@ const Store = {
       return [];
     }
   },
-  addBooking: async function(bookingObj) {
+  addBooking: function(bookingObj) {
     let bookings = this.getBookings();
     bookings.unshift(bookingObj);
     localStorage.setItem('rmh_bookings', JSON.stringify(bookings));
     this.updateHeaderBadges();
-
-    // Sync with Supabase DB
-    if (typeof SupabaseService !== 'undefined') {
-      await SupabaseService.saveBooking(bookingObj);
-    }
-  },
-  syncBookingsFromSupabase: async function() {
-    if (typeof SupabaseService !== 'undefined') {
-      const dbBookings = await SupabaseService.fetchUserBookings();
-      if (dbBookings && dbBookings.length > 0) {
-        localStorage.setItem('rmh_bookings', JSON.stringify(dbBookings));
-        this.updateHeaderBadges();
-      }
-    }
-  },
-  submitEnquiry: async function(enquiryObj) {
-    if (typeof SupabaseService !== 'undefined') {
-      await SupabaseService.submitEnquiryDb(enquiryObj);
-    }
-  },
-  loadPackagesFromSupabase: async function() {
-    if (typeof SupabaseService !== 'undefined') {
-      const dbPkgs = await SupabaseService.fetchPackages();
-      if (dbPkgs && dbPkgs.length > 0) {
-        // Replace/Merge static PACKAGES_DATA
-        PACKAGES_DATA.length = 0;
-        PACKAGES_DATA.push(...dbPkgs);
-        console.log(`📦 Loaded ${dbPkgs.length} packages dynamically from Supabase DB.`);
-      }
-    }
   },
   updateHeaderBadges: function() {
     const wishCount = this.getWishlist().length;
@@ -630,41 +586,19 @@ const Store = {
     }
   },
   setUser: function(userObj) {
-    if (userObj) {
-      localStorage.setItem('rmh_user', JSON.stringify(userObj));
-    } else {
-      localStorage.removeItem('rmh_user');
-    }
+    localStorage.setItem('rmh_user', JSON.stringify(userObj));
     this.updateUserUI();
   },
   updateUserUI: function() {
     const user = this.getUser();
     document.querySelectorAll('.btn-login').forEach(btn => {
       if (user) {
-        btn.textContent = `Hi, ${user.name ? user.name.split(' ')[0] : 'User'} 👤`;
+        btn.textContent = `Hi, ${user.name.split(' ')[0]}`;
         btn.classList.add('logged-in');
       } else {
-        btn.textContent = `Login / Sign Up`;
+        btn.textContent = `Login`;
         btn.classList.remove('logged-in');
       }
     });
-  },
-  clearAllData: function() {
-    localStorage.removeItem('rmh_wishlist');
-    localStorage.removeItem('rmh_bookings');
-    localStorage.removeItem('rmh_user');
-    localStorage.removeItem('rmh_db_users');
-    localStorage.removeItem('rmh_db_session');
-    localStorage.removeItem('rmh_db_enquiries');
-    localStorage.removeItem('rmh_supabase_url');
-    localStorage.removeItem('rmh_supabase_key');
-    if (typeof SupabaseService !== 'undefined' && SupabaseService.clearAllLocalData) {
-      SupabaseService.clearAllLocalData();
-    }
-    this.updateHeaderBadges();
-    this.updateUserUI();
-    console.log('🧹 All local database and user data cleared successfully.');
   }
 };
-
-
