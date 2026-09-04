@@ -1,0 +1,22 @@
+services:
+  # 1. Backend Node.js Express REST API Service
+  - type: web
+    name: rulemyholiday-api
+    env: node
+    region: singapore
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        value: rule_holiday_super_secret_jwt_key_2026_!@#
+      - key: JWT_EXPIRE
+        value: 30d
+
+  # 2. Frontend Static Website Service
+  - type: static
+    name: rulemyholiday-frontend
+    buildCommand: ""
+    staticPublishPath: ./
