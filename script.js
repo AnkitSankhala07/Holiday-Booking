@@ -26,6 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Touch & Scroll listener fallback for mobile devices
+    const playVideoOnGesture = () => {
+      if (heroVideo.paused) {
+        heroVideo.play().catch(() => {});
+      }
+      window.removeEventListener('touchstart', playVideoOnGesture);
+      window.removeEventListener('scroll', playVideoOnGesture);
+    };
+    window.addEventListener('touchstart', playVideoOnGesture, { passive: true });
+    window.addEventListener('scroll', playVideoOnGesture, { passive: true });
+
     if (heroSoundBtn) {
       heroSoundBtn.addEventListener('click', () => {
         heroVideo.muted = !heroVideo.muted;
