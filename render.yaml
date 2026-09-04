@@ -16,7 +16,9 @@ services:
         value: 30d
 
   # 2. Frontend Static Website Service
-  - type: static
+  - type: web
     name: rulemyholiday-frontend
+    env: static
     buildCommand: ""
     staticPublishPath: ./
+
