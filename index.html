@@ -63,9 +63,18 @@
   </div>
 </div>
 
-<!-- Hero Section -->
+<!-- Hero Section with Cinematic Background Video -->
 <section class="hero">
-  <div class="wrap" style="position:relative;">
+  <!-- Video Background Layer -->
+  <div class="hero-video-wrapper">
+    <video id="heroVideo" class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+      <source src="14312382_3840_2160_60fps.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="wrap" style="position:relative; z-index: 5;">
     
     <div class="hero-content">
       <h1>
@@ -128,6 +137,22 @@
         </form>
       </div>
 
+    </div>
+
+    <!-- Video Audio & Playback Controls Floating Bar -->
+    <div class="hero-video-controls">
+      <div class="hero-live-badge">
+        <span class="live-pulse"></span>
+        4K HD Cinematic View
+      </div>
+      <button id="heroSoundBtn" class="video-control-btn" aria-label="Toggle Sound">
+        <span class="sound-icon">🔇</span>
+        <span class="control-label">Sound Off</span>
+      </button>
+      <button id="heroPlayBtn" class="video-control-btn" aria-label="Pause Video">
+        <span class="play-icon">⏸</span>
+        <span class="control-label">Pause</span>
+      </button>
     </div>
 
     <!-- Floating Action Cards (Right Side Desktop) -->

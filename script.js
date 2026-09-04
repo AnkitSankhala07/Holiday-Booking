@@ -11,6 +11,56 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------------------------------------------------------
+     Hero Video Controls (Autoplay, Mute/Unmute & Play/Pause)
+     --------------------------------------------------------- */
+  const heroVideo = document.getElementById('heroVideo');
+  const heroSoundBtn = document.getElementById('heroSoundBtn');
+  const heroPlayBtn = document.getElementById('heroPlayBtn');
+
+  if (heroVideo) {
+    // Attempt auto-play programmatically for mobile & desktop compatibility
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.log("Autoplay prevented by browser, waiting for user gesture:", err);
+      });
+    }
+
+    if (heroSoundBtn) {
+      heroSoundBtn.addEventListener('click', () => {
+        heroVideo.muted = !heroVideo.muted;
+        const iconSpan = heroSoundBtn.querySelector('.sound-icon');
+        const labelSpan = heroSoundBtn.querySelector('.control-label');
+        if (heroVideo.muted) {
+          if (iconSpan) iconSpan.textContent = '🔇';
+          if (labelSpan) labelSpan.textContent = 'Sound Off';
+          window.showToast('Audio Muted');
+        } else {
+          if (iconSpan) iconSpan.textContent = '🔊';
+          if (labelSpan) labelSpan.textContent = 'Sound On';
+          window.showToast('Audio Enabled 🔊');
+        }
+      });
+    }
+
+    if (heroPlayBtn) {
+      heroPlayBtn.addEventListener('click', () => {
+        const iconSpan = heroPlayBtn.querySelector('.play-icon');
+        const labelSpan = heroPlayBtn.querySelector('.control-label');
+        if (heroVideo.paused) {
+          heroVideo.play();
+          if (iconSpan) iconSpan.textContent = '⏸';
+          if (labelSpan) labelSpan.textContent = 'Pause';
+        } else {
+          heroVideo.pause();
+          if (iconSpan) iconSpan.textContent = '▶';
+          if (labelSpan) labelSpan.textContent = 'Play';
+        }
+      });
+    }
+  }
+
+  /* ---------------------------------------------------------
      1. Toast System
      --------------------------------------------------------- */
   window.showToast = function(msg) {
