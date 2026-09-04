@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RuleMyHoliday — Holiday Packages, Custom Trips & Travel Deals</title>
+<meta name="description" content="Discover domestic and international holiday packages, build a custom itinerary, and book your next trip with RuleMyHoliday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="announce">
+  <div class="wrap">
+    <span>✦ Exclusive Holiday Deals — Book your dream vacation today</span>
+    <div class="contact-bits">
+      <span>24/7 Support</span>
+      <a href="tel:+911244567890">+91 124 456 7890</a>
+      <a href="mailto:hello@rulemyholiday.com">hello@rulemyholiday.com</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="wrap">
+    <a href="index.html" class="logo">Rule<span class="mark">My</span>Holiday</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="packages.html">Holiday Packages</a>
+      <a href="packages.html?type=domestic">Domestic</a>
+      <a href="packages.html?type=international">International</a>
+      <a href="#themes">Themes</a>
+      <a href="#deals">Deals</a>
+      <a href="#customize">Customize Trip</a>
+      <a href="#blog">Blogs</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#">My Bookings</a>
+      <a href="#">Wishlist</a>
+      <a href="#" class="btn-login">Login</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow-route"><span class="dots"></span> Plan → Customize → Travel</div>
+        <h1>Discover your next adventure</h1>
+        <p class="hero-sub">Explore unforgettable destinations with holiday packages designed around your dates, your budget, and the way you like to travel.</p>
+        <div class="hero-stats">
+          <div><strong>1,200+</strong><span>Packages curated</span></div>
+          <div><strong>68</strong><span>Countries covered</span></div>
+          <div><strong>45,000+</strong><span>Happy travelers</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-stack">
+          <div class="p1"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=700&q=80" alt="Tropical beach with turquoise water and longtail boat"></div>
+          <div class="p2"><img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=500&q=80" alt="Houseboat on Kerala backwaters at sunset"></div>
+        </div>
+        <div class="pin-badge"><span class="dot"></span> Trip planned: Kerala, 5D/4N</div>
+      </div>
+    </div>
+
+    <div class="search-card">
+      <div class="search-tabs">
+        <button class="active">Domestic Holidays</button>
+        <button>International Holidays</button>
+        <button>Customized Trip</button>
+      </div>
+      <div class="search-fields">
+        <div class="field">
+          <label for="dest">Destination</label>
+          <input id="dest" type="text" placeholder="Where do you want to go?">
+        </div>
+        <div class="field">
+          <label for="dep">Departure City</label>
+          <input id="dep" type="text" placeholder="e.g. Ahmedabad">
+        </div>
+        <div class="field">
+          <label for="tdate">Travel Date</label>
+          <input id="tdate" type="date">
+        </div>
+        <div class="field">
+          <label for="dur">Duration</label>
+          <select id="dur">
+            <option>3–5 Days</option>
+            <option>6–8 Days</option>
+            <option>9+ Days</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="trav">Travelers</label>
+          <select id="trav">
+            <option>2 Adults</option>
+            <option>2 Adults, 1 Child</option>
+            <option>4 Adults</option>
+            <option>Solo</option>
+          </select>
+        </div>
+        <button class="btn-search" id="heroSearchBtn">Search Holidays</button>
+      </div>
+    </div>
+
+    <div class="quick-dest">
+      <span style="color:#9FB9C1;font-size:13px;">Popular:</span>
+      <a href="packages.html">Goa</a><a href="packages.html">Kerala</a><a href="packages.html">Kashmir</a>
+      <a href="packages.html">Manali</a><a href="packages.html">Dubai</a><a href="packages.html">Bali</a>
+      <a href="packages.html">Thailand</a><a href="packages.html">Singapore</a><a href="packages.html">Maldives</a><a href="packages.html">Europe</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trending destinations -->
+<section class="section route-strip">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Trending destinations</h2>
+        <p>The places everyone's booking this season, at a glance.</p>
+      </div>
+      <a href="packages.html" class="see-all">View all destinations →</a>
+    </div>
+    <div class="dest-scroll">
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=400&q=80" alt="Goa beach with palm trees"></div>
+        <div class="dname">Goa</div><div class="dmeta">42 packages</div><div class="dprice">From ₹9,999</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" alt="Kerala backwaters"></div>
+        <div class="dname">Kerala</div><div class="dmeta">37 packages</div><div class="dprice">From ₹14,499</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&q=80" alt="Kashmir valley with snow mountains"></div>
+        <div class="dname">Kashmir</div><div class="dmeta">29 packages</div><div class="dprice">From ₹18,999</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1626016301964-3ce62a8823ba?w=400&q=80" alt="Manali mountains and valley"></div>
+        <div class="dname">Manali</div><div class="dmeta">33 packages</div><div class="dprice">From ₹11,499</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&q=80" alt="Dubai skyline at dusk"></div>
+        <div class="dname">Dubai</div><div class="dmeta">51 packages</div><div class="dprice">From ₹34,999</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80" alt="Bali rice terraces"></div>
+        <div class="dname">Bali</div><div class="dmeta">46 packages</div><div class="dprice">From ₹39,999</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400&q=80" alt="Maldives overwater villas"></div>
+        <div class="dname">Maldives</div><div class="dmeta">22 packages</div><div class="dprice">From ₹64,999</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-photo"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&q=80" alt="European old town street"></div>
+        <div class="dname">Europe</div><div class="dmeta">28 packages</div><div class="dprice">From ₹1,09,999</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Travel by theme -->
+<section class="section alt" id="themes">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2>Find your perfect holiday</h2><p>Browse trips by the kind of experience you're after.</p></div>
+    </div>
+    <div class="theme-grid">
+      <a class="theme-card" href="packages.html"><div class="emoji">🏖</div><div class="tname">Beach Holidays</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">💑</div><div class="tname">Honeymoon</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">👨‍👩‍👧</div><div class="tname">Family Trips</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">🏔</div><div class="tname">Adventure</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">🛕</div><div class="tname">Pilgrimage</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">💎</div><div class="tname">Luxury</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">👥</div><div class="tname">Group Tours</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">🎒</div><div class="tname">Backpacking</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">🌿</div><div class="tname">Nature &amp; Wildlife</div></a>
+      <a class="theme-card" href="packages.html"><div class="emoji">🏙</div><div class="tname">City Breaks</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Domestic packages -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2>Top domestic packages</h2><p>Hand-picked trips across India, ready to book.</p></div>
+      <a href="packages.html?type=domestic" class="see-all">View all domestic →</a>
+    </div>
+    <div class="pkg-grid">
+      <article class="pkg-card">
+        <div class="pkg-photo">
+          <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&q=80" alt="Kerala backwater houseboat">
+          <span class="pkg-badge">20% OFF</span>
+          <button class="pkg-wish" data-active="false" aria-label="Save to wishlist">🤍</button>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-route">Cochin → Munnar → Thekkady → Alleppey</div>
+          <h3>Amazing Kerala Escape</h3>
+          <div class="pkg-duration">4 Nights / 5 Days · Family Friendly</div>
+          <div class="pkg-incl"><span>Hotel</span><span>Meals</span><span>Sightseeing</span><span>Transfers</span></div>
+          <div class="pkg-foot">
+            <div class="pkg-price"><span class="was">₹31,499</span><div class="now">₹24,999</div><span class="pp">per person</span></div>
+            <div class="pkg-actions"><a href="package-details.html" class="btn-ghost">Details</a><a href="package-details.html" class="btn-solid">Book</a></div>
+          </div>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-photo">
+          <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=500&q=80" alt="Kashmir Dal Lake with shikara boats">
+          <span class="pkg-badge">15% OFF</span>
+          <button class="pkg-wish" data-active="false" aria-label="Save to wishlist">🤍</button>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-route">Srinagar → Gulmarg → Pahalgam</div>
+          <h3>Kashmir Paradise Tour</h3>
+          <div class="pkg-duration">5 Nights / 6 Days · Honeymoon Special</div>
+          <div class="pkg-incl"><span>Hotel</span><span>Breakfast</span><span>Shikara Ride</span><span>Transfers</span></div>
+          <div class="pkg-foot">
+            <div class="pkg-price"><span class="was">₹27,999</span><div class="now">₹22,999</div><span class="pp">per person</span></div>
+            <div class="pkg-actions"><a href="package-details.html" class="btn-ghost">Details</a><a href="package-details.html" class="btn-solid">Book</a></div>
+          </div>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-photo">
+          <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&q=80" alt="Goa beach sunset">
+          <span class="pkg-badge">25% OFF</span>
+          <button class="pkg-wish" data-active="false" aria-label="Save to wishlist">🤍</button>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-route">North Goa → South Goa</div>
+          <h3>Goa Beach Getaway</h3>
+          <div class="pkg-duration">3 Nights / 4 Days · Friends &amp; Group</div>
+          <div class="pkg-incl"><span>Hotel</span><span>Breakfast</span><span>Water Sports</span><span>Transfers</span></div>
+          <div class="pkg-foot">
+            <div class="pkg-price"><span class="was">₹13,299</span><div class="now">₹9,999</div><span class="pp">per person</span></div>
+            <div class="pkg-actions"><a href="package-details.html" class="btn-ghost">Details</a><a href="package-details.html" class="btn-solid">Book</a></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- International packages -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2>Top international packages</h2><p>Bali, Dubai, Europe and more — visa-friendly and ready-to-book.</p></div>
+      <a href="packages.html?type=international" class="see-all">View all international →</a>
+    </div>
+    <div class="pkg-grid">
+      <article class="pkg-card">
+        <div class="pkg-photo">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&q=80" alt="Bali rice terrace and temple">
+          <span class="pkg-badge">18% OFF</span>
+          <button class="pkg-wish" data-active="false" aria-label="Save to wishlist">🤍</button>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-route">Denpasar → Ubud → Seminyak</div>
+          <h3>Bali Romantic Retreat</h3>
+          <div class="pkg-duration">5 Nights / 6 Days · Honeymoon</div>
+          <div class="pkg-incl"><span>4★ Hotel</span><span>Breakfast</span><span>Airport Pickup</span></div>
+          <div class="pkg-foot">
+            <div class="pkg-price"><span class="was">₹48,999</span><div class="now">₹39,999</div><span class="pp">per person</span></div>
+            <div class="pkg-actions"><a href="package-details.html" class="btn-ghost">Details</a><a href="package-details.html" class="btn-solid">Book</a></div>
+          </div>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-photo">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Dubai marina skyline">
+          <span class="pkg-badge">12% OFF</span>
+          <button class="pkg-wish" data-active="false" aria-label="Save to wishlist">🤍</button>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-route">Dubai City → Abu Dhabi</div>
+          <h3>Dubai City Lights</h3>
+          <div class="pkg-duration">4 Nights / 5 Days · Family</div>
+          <div class="pkg-incl"><span>5★ Hotel</span><span>Desert Safari</span><span>Visa Assist</span></div>
+          <div class="pkg-foot">
+            <div class="pkg-price"><span class="was">₹39,999</span><div class="now">₹34,999</div><span class="pp">per person</span></div>
+            <div class="pkg-actions"><a href="package-details.html" class="btn-ghost">Details</a><a href="package-details.html" class="btn-solid">Book</a></div>
+          </div>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-photo">
+          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=500&q=80" alt="Maldives overwater villa">
+          <span class="pkg-badge">10% OFF</span>
+          <button class="pkg-wish" data-active="false" aria-label="Save to wishlist">🤍</button>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-route">Malé → Private Island Resort</div>
+          <h3>Maldives Overwater Escape</h3>
+          <div class="pkg-duration">4 Nights / 5 Days · Luxury</div>
+          <div class="pkg-incl"><span>Villa Stay</span><span>All Meals</span><span>Seaplane Transfer</span></div>
+          <div class="pkg-foot">
+            <div class="pkg-price"><span class="was">₹72,499</span><div class="now">₹64,999</div><span class="pp">per person</span></div>
+            <div class="pkg-actions"><a href="package-details.html" class="btn-ghost">Details</a><a href="package-details.html" class="btn-solid">Book</a></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Deals -->
+<section class="section" id="deals">
+  <div class="wrap">
+    <div class="section-head"><div><h2>Special deals</h2><p>Limited-time offers — grab them before they expire.</p></div></div>
+    <div class="deals-strip">
+      <div class="deal-card d1">
+        <div><div class="dtag">Summer Sale</div><h3>Flat 20% off beach holidays</h3></div>
+        <div class="deal-timer">Ends in <b class="h">24</b>:<b class="m">00</b>:<b class="s">00</b></div>
+      </div>
+      <div class="deal-card d2">
+        <div><div class="dtag">Honeymoon Special</div><h3>Free candlelight dinner on booking</h3></div>
+        <div class="deal-timer">Ends in <b class="h">18</b>:<b class="m">32</b>:<b class="s">00</b></div>
+      </div>
+      <div class="deal-card d3">
+        <div><div class="dtag">Early Bird</div><h3>Book 45 days ahead, save ₹5,000</h3></div>
+        <div class="deal-timer">Ends in <b class="h">40</b>:<b class="m">15</b>:<b class="s">00</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why book with us -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head"><div><h2>Why book with RuleMyHoliday</h2></div></div>
+    <div class="trust-grid">
+      <div class="trust-card"><div class="tick">✓</div><p>Best Price Guarantee</p></div>
+      <div class="trust-card"><div class="tick">✓</div><p>Customized Holidays</p></div>
+      <div class="trust-card"><div class="tick">✓</div><p>Trusted Travel Experts</p></div>
+      <div class="trust-card"><div class="tick">✓</div><p>Secure Payments</p></div>
+      <div class="trust-card"><div class="tick">✓</div><p>24/7 Travel Assistance</p></div>
+      <div class="trust-card"><div class="tick">✓</div><p>Easy Cancellation</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><div><h2>What our travelers say</h2></div></div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Portrait of Priya S.">
+          <div><div class="testi-name">Priya S.</div><div class="testi-place">Bali, Honeymoon</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">RuleMyHoliday planned our honeymoon perfectly. Everything was seamless, from transfers to the candlelight dinner.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=100&q=80" alt="Portrait of Arjun M.">
+          <div><div class="testi-name">Arjun M.</div><div class="testi-place">Kerala, Family Trip</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">The itinerary was well-paced for our kids, and the houseboat stay was the highlight of the whole trip.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=100&q=80" alt="Portrait of Neha K.">
+          <div><div class="testi-name">Neha K.</div><div class="testi-place">Dubai, Group Trip</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">Great value for money and the AI assistant actually helped us pick the right package in minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section alt" id="blog">
+  <div class="wrap">
+    <div class="section-head"><div><h2>Travel blog</h2><p>Guides and inspiration for your next trip.</p></div></div>
+    <div class="blog-grid">
+      <a class="blog-card" href="#"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=300&q=80" alt="Bali temple among trees"><div class="bcat">Guides</div><h4>Top 10 places to visit in Bali</h4></a>
+      <a class="blog-card" href="#"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=300&q=80" alt="Kashmir snow mountains"><div class="bcat">Planning</div><h4>Best time to visit Kashmir</h4></a>
+      <a class="blog-card" href="#"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=300&q=80" alt="Thailand street market"><div class="bcat">Budget</div><h4>Budget travel guide for Thailand</h4></a>
+      <a class="blog-card" href="#"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=300&q=80" alt="Couple watching sunset"><div class="bcat">Honeymoon</div><h4>How to plan a perfect honeymoon</h4></a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="section">
+  <div class="wrap">
+    <div class="newsletter">
+      <div><h3>Get travel inspiration &amp; exclusive deals</h3><p>One email a week. No spam, unsubscribe anytime.</p></div>
+      <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('input').value='Subscribed ✓';">
+        <input type="email" required placeholder="you@email.com">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Rule<span class="mark">My</span>Holiday</div>
+        <p class="tag">RULEMYHOLIDAY PRIVATE LIMITED — designing custom holidays and trusted holiday packages across India and abroad.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li><a href="about.html">About Us</a></li><li><a href="#">Careers</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h5>Holiday Packages</h5>
+        <ul><li><a href="packages.html?type=domestic">Domestic</a></li><li><a href="packages.html?type=international">International</a></li><li><a href="packages.html">Honeymoon</a></li><li><a href="packages.html">Adventure</a></li><li><a href="packages.html">Luxury</a></li></ul>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <ul><li><a href="#">FAQs</a></li><li><a href="#">Cancellation Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Privacy Policy</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 RuleMyHoliday Private Limited. All rights reserved.</span>
+      <span>Made for travelers, by travelers.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- AI Chatbot -->
+<button class="chat-fab" id="chatFab" aria-label="Open Rumi, AI travel assistant">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="avatar">R</div>
+    <div style="flex:1;"><strong>Rumi</strong><span>Your AI Travel Assistant</span></div>
+    <button id="chatClose" style="background:none;border:none;color:#fff;font-size:18px;" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">Hi! I'm Rumi 👋 Tell me your destination, dates or budget and I'll help you find the right holiday package.</div>
+  </div>
+  <div class="chat-suggest" id="chatSuggest">
+    <button>Honeymoon ideas</button>
+    <button>Plan a 5-day Kerala trip</button>
+    <button>Best places in December</button>
+    <button>Help me customize my trip</button>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask Rumi anything about your trip...">
+    <button id="chatSend" aria-label="Send message">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
