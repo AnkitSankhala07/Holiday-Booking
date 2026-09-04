@@ -886,3 +886,101 @@ p{ margin:0; }
   .trust-bar-grid { grid-template-columns: 1fr; }
   .pkg-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Supabase Auth & Profile Styles ---------- */
+.auth-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--line);
+  margin-bottom: 20px;
+  gap: 16px;
+}
+.auth-tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-mute);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.auth-tab-btn.active {
+  color: var(--royal);
+}
+.auth-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 3px;
+  background: var(--royal);
+  border-radius: 999px;
+}
+.auth-alert {
+  padding: 10px 14px;
+  border-radius: var(--radius-s);
+  font-size: 13px;
+  margin-bottom: 14px;
+  display: none;
+}
+.auth-alert.error {
+  display: block;
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
+}
+.auth-alert.success {
+  display: block;
+  background: #D1FAE5;
+  color: #065F46;
+  border: 1px solid #6EE7B7;
+}
+
+.password-input-wrap {
+  position: relative;
+}
+.password-input-wrap input {
+  padding-right: 40px;
+}
+.toggle-pwd-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-mute);
+  font-size: 14px;
+}
+
+.user-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.2s ease;
+}
+.user-profile-badge:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.supabase-badge {
+  font-size: 11px;
+  background: #3ECF8E;
+  color: #000;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+

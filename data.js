@@ -511,7 +511,7 @@ const COUPONS_DATA = {
 };
 
 // =========================================================
-// Storage & Helper Methods
+// Storage & Helper Methods (Integrated with Supabase)
 // =========================================================
 
 const Store = {
@@ -526,7 +526,7 @@ const Store = {
     localStorage.setItem('rmh_wishlist', JSON.stringify(list));
     this.updateHeaderBadges();
   },
-  toggleWishlist: function(id) {
+  toggleWishlist: async function(id) {
     let list = this.getWishlist();
     const index = list.indexOf(id);
     let added = false;
@@ -537,10 +537,24 @@ const Store = {
       added = true;
     }
     this.saveWishlist(list);
+
+    // Sync with Supabase DB if user logged in
+    if (typeof SupabaseService !== 'undefined') {
+      const res = await SupabaseService.toggleWishlistDb(id);
+      if (res !== null) added = res;
+    }
     return added;
   },
   isWishlisted: function(id) {
     return this.getWishlist().includes(id);
+  },
+  syncWishlistFromSupabase: async function() {
+    if (typeof SupabaseService !== 'undefined') {
+      const dbWishlist = await SupabaseService.fetchUserWishlist();
+      if (dbWishlist && dbWishlist.length > 0) {
+        this.saveWishlist(dbWishlist);
+      }
+    }
   },
   getBookings: function() {
     try {
@@ -561,11 +575,41 @@ const Store = {
       return [];
     }
   },
-  addBooking: function(bookingObj) {
+  addBooking: async function(bookingObj) {
     let bookings = this.getBookings();
     bookings.unshift(bookingObj);
     localStorage.setItem('rmh_bookings', JSON.stringify(bookings));
     this.updateHeaderBadges();
+
+    // Sync with Supabase DB
+    if (typeof SupabaseService !== 'undefined') {
+      await SupabaseService.saveBooking(bookingObj);
+    }
+  },
+  syncBookingsFromSupabase: async function() {
+    if (typeof SupabaseService !== 'undefined') {
+      const dbBookings = await SupabaseService.fetchUserBookings();
+      if (dbBookings && dbBookings.length > 0) {
+        localStorage.setItem('rmh_bookings', JSON.stringify(dbBookings));
+        this.updateHeaderBadges();
+      }
+    }
+  },
+  submitEnquiry: async function(enquiryObj) {
+    if (typeof SupabaseService !== 'undefined') {
+      await SupabaseService.submitEnquiryDb(enquiryObj);
+    }
+  },
+  loadPackagesFromSupabase: async function() {
+    if (typeof SupabaseService !== 'undefined') {
+      const dbPkgs = await SupabaseService.fetchPackages();
+      if (dbPkgs && dbPkgs.length > 0) {
+        // Replace/Merge static PACKAGES_DATA
+        PACKAGES_DATA.length = 0;
+        PACKAGES_DATA.push(...dbPkgs);
+        console.log(`📦 Loaded ${dbPkgs.length} packages dynamically from Supabase DB.`);
+      }
+    }
   },
   updateHeaderBadges: function() {
     const wishCount = this.getWishlist().length;
@@ -586,19 +630,24 @@ const Store = {
     }
   },
   setUser: function(userObj) {
-    localStorage.setItem('rmh_user', JSON.stringify(userObj));
+    if (userObj) {
+      localStorage.setItem('rmh_user', JSON.stringify(userObj));
+    } else {
+      localStorage.removeItem('rmh_user');
+    }
     this.updateUserUI();
   },
   updateUserUI: function() {
     const user = this.getUser();
     document.querySelectorAll('.btn-login').forEach(btn => {
       if (user) {
-        btn.textContent = `Hi, ${user.name.split(' ')[0]}`;
+        btn.textContent = `Hi, ${user.name ? user.name.split(' ')[0] : 'User'} 👤`;
         btn.classList.add('logged-in');
       } else {
-        btn.textContent = `Login`;
+        btn.textContent = `Login / Sign Up`;
         btn.classList.remove('logged-in');
       }
     });
   }
 };
+
