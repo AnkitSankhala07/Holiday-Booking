@@ -133,10 +133,32 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroRequestQuoteBtn) heroRequestQuoteBtn.addEventListener('click', openEnquireModal);
 
   if (enquireForm) {
-    enquireForm.addEventListener('submit', (e) => {
+    enquireForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('enqName').value;
-      const phone = document.getElementById('enqPhone').value;
+      const name = document.getElementById('enqName') ? document.getElementById('enqName').value : '';
+      const phone = document.getElementById('enqPhone') ? document.getElementById('enqPhone').value : '';
+      const destInput = document.getElementById('enqDest');
+      const destination = destInput ? destInput.value : 'Custom Trip Package';
+
+      if (window.ApiClient && window.ApiClient.isLoggedIn()) {
+        try {
+          const user = window.ApiClient.getUser();
+          await window.ApiClient.createBooking({
+            packageId: 'custom-quote',
+            packageTitle: destination || 'Custom Holiday Quote Request',
+            travelerName: name || user.name,
+            travelerEmail: user.email,
+            travelerPhone: phone || user.phone || 'N/A',
+            travelersCount: 2,
+            travelDate: new Date(),
+            totalAmount: 25000,
+            specialRequests: `Custom inquiry submitted via site header/modal for ${destination}`
+          });
+        } catch (err) {
+          console.warn('Booking API submit error:', err.message);
+        }
+      }
+
       if (enquireModal) enquireModal.classList.remove('open');
       window.showToast(`Thank you, ${name}! Our travel expert will call you shortly on ${phone}. 📞`);
     });
