@@ -126,8 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (enquireModal) enquireModal.classList.add('open');
   }
 
+  const btnRequestQuote = document.getElementById('btnRequestQuote');
   if (headerEnquireBtn) headerEnquireBtn.addEventListener('click', openEnquireModal);
   if (mobileEnquireBtn) mobileEnquireBtn.addEventListener('click', openEnquireModal);
+  if (btnRequestQuote) btnRequestQuote.addEventListener('click', openEnquireModal);
 
   if (enquireForm) {
     enquireForm.addEventListener('submit', (e) => {
